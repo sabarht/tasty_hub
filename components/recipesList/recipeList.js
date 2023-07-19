@@ -1,7 +1,16 @@
-export default function RecipeList() {
+// import { useRouter } from "next/router";
+export default function RecipeList({ data }) {
+  // const router = useRouter();
+
   return (
-    <div>
-      <h1>MEOW</h1>
-    </div>
+    <section>
+      meow
+      {data.map((recipe) => (
+        <ul key={recipe._id}>
+          <li>{recipe.name}</li>
+          <li>{recipe.description}</li>
+        </ul>
+      ))}
+    </section>
   );
 }

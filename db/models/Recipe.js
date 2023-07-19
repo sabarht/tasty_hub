@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const { Schema } = mongoose;
 
 const recipeSchema = new Schema({
-  title: {
+  name: {
     type: String,
     required: true,
   },
@@ -11,12 +11,12 @@ const recipeSchema = new Schema({
     type: String,
     required: true,
   },
-  direction: {
+  description: {
     type: String,
     required: true,
   },
 });
 
-const Recipe = mongoose.models.Joke || mongoose.model("Joke", jokeSchema);
+const Recipe = mongoose.models.Recipe || mongoose.model("Recipe", recipeSchema);
 
 export default Recipe;
