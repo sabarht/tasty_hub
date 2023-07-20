@@ -5,7 +5,6 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const { data } = useSWR("/api/recipes");
-  // console.log("data", data);
   if (!data) {
     return <h1>Loading...</h1>;
   }
