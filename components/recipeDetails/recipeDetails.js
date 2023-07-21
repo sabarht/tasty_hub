@@ -1,6 +1,9 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 export default function RecipeDetails({ data }) {
+  const router = useRouter();
+
   const { title, image, direction, description } = data;
   return (
     <section>
