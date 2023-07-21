@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import RecipeList from "../../components/recipesList/recipeList";
 import useSWR from "swr";
+import Navigation from "../../components/navigation/navigation";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
@@ -10,10 +11,13 @@ export default function Home() {
   }
 
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <RecipeList data={data} />
-    </main>
+    <>
+      <Navigation />
+      <main
+        className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
+      >
+        <RecipeList data={data} />
+      </main>
+    </>
   );
 }
