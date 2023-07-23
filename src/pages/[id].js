@@ -1,4 +1,5 @@
 import RecipeDetails from "../../components/recipeDetails/recipeDetails";
+import Navigation from "../../components/navigation/navigation";
 import useSWR from "swr";
 import { useRouter } from "next/router";
 
@@ -9,7 +10,17 @@ export default function RecipeDetailsPage() {
   const { data } = useSWR(id ? `/api/recipes/${id}` : null);
 
   if (!data) {
-    return <h1>Loading...</h1>;
+    return (
+      <>
+        <Navigation />
+        <h1>Loading...</h1>;
+      </>
+    );
   }
-  return <RecipeDetails data={data} />;
+  return (
+    <>
+      <Navigation />
+      <RecipeDetails data={data} />;
+    </>
+  );
 }
