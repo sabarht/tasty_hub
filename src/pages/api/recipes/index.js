@@ -7,7 +7,19 @@ export default async function handler(request, response) {
   if (request.method === "GET") {
     const recipes = await Recipe.find();
     return response.status(200).json(recipes);
-  } else {
-    return response.status(405).json({ message: "Method not allowed" });
+  }
+  if (request.method === "POST") {
+    try {
+      const recipeData = request.body;
+
+      const recipe = new Recipe(recipeData);
+
+      await recipe.save();
+
+      return response.status(201).json({ status: "Recipe created" });
+    } catch (error) {
+      console.log(error);
+      return response.status(400).json({ error: error.message });
+    }
   }
 }
