@@ -9,16 +9,19 @@ export default function RecipeList({ data }) {
       {data.map((recipe) => (
         <ul
           key={recipe._id}
-          className="flex-col max-w-lg  m-2 p-2 border-2 rounded-md border-gray-400"
+          className="flex-col  m-2 p-2 border-2 rounded-md border-gray-400"
         >
-          <span onClick={() => router.push(`/${recipe._id}`)}>
-            <div>
+          <span
+            onClick={() => router.push(`/${recipe._id}`)}
+            className="flex-col"
+          >
+            <div className="w-80 h-80">
               <Image
                 src={recipe.image}
                 width={400}
                 height={400}
                 alt={recipe.description}
-                className="w-full max-h-52 h-full object-cover rounded-md"
+                className="w-full h-full  object-cover  rounded-md"
               ></Image>
             </div>
 

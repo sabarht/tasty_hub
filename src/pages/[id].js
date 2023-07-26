@@ -2,6 +2,7 @@ import RecipeDetails from "../../components/recipeDetails/recipeDetails";
 import Navigation from "../../components/navigation/navigation";
 import useSWR from "swr";
 import { useRouter } from "next/router";
+import Layout from "../../components/layout/layout";
 
 export default function RecipeDetailsPage() {
   const router = useRouter();
@@ -20,7 +21,9 @@ export default function RecipeDetailsPage() {
   return (
     <>
       <Navigation />
-      <RecipeDetails data={data} />;
+      <Layout>
+        <RecipeDetails data={data} />;
+      </Layout>
     </>
   );
 }
