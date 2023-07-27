@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
 import SaveButton from "../saveButton/savaButton";
-export default function RecipeList({ data, handleSave }) {
+export default function RecipeList({ data }) {
   const router = useRouter();
 
   return (
@@ -32,7 +32,7 @@ export default function RecipeList({ data, handleSave }) {
               </ul>
             </li>
           </span>
-          <SaveButton handleSave={handleSave} />
+          <SaveButton data={data} />
         </ul>
       ))}
     </section>

@@ -3,6 +3,7 @@ import RecipeList from "../../../components/recipesList/recipeList";
 import Navigation from "../../../components/navigation/navigation";
 import { useState } from "react";
 import useSWR from "swr";
+import Layout from "../../../components/layout/layout";
 
 export default function SearchPage() {
   const { data } = useSWR("/api/recipes");
@@ -21,11 +22,33 @@ export default function SearchPage() {
       setSearchResults(filteredResults);
     }
   }
+  function handleFilter(category) {
+    const results = data.filter((recipe) => recipe.category == category);
+    console.log(results);
+    setSearchResults(results);
+  }
   return (
     <>
       <Navigation />
-      <SearchForm onChange={handleSearchResults} />
-      <RecipeList data={searchResults} />
+      <Layout>
+        <button
+          onClick={() => {
+            handleFilter("Iranian");
+          }}
+        >
+          Iranian
+        </button>
+        <button
+          onClick={() => {
+            handleFilter("Italian");
+          }}
+        >
+          Italian
+        </button>
+
+        <SearchForm onChange={handleSearchResults} />
+        <RecipeList data={searchResults} />
+      </Layout>
     </>
   );
 }
