@@ -1,4 +1,31 @@
+import React, { useState } from "react";
+
 export default function RecipeForm({ onSubmit, formName }) {
+  const [appendedInput, setAppendedInput] = useState("");
+  function addIngredients() {
+    const newAppendInput = (
+      <div>
+        <input
+          name="ingredients"
+          id="ingredients"
+          type="text"
+          className="border-2"
+
+          //   defaultValue={defaultData?.name}
+        />
+        <button onClick={removeIngredients}>-</button>
+      </div>
+    );
+    setAppendedInput([...appendedInput, newAppendInput]);
+    console.log("add", appendedInput);
+  }
+  function removeIngredients() {
+    console.log("remove", appendedInput.slice(0, -1));
+
+    const deleteInput = [...appendedInput];
+
+    setAppendedInput(deleteInput.slice(0, deleteInput.length));
+  }
   return (
     <>
       <form
@@ -47,6 +74,9 @@ export default function RecipeForm({ onSubmit, formName }) {
           />{" "}
         </div>
 
+        {<p>{appendedInput}</p>}
+
+        <button onClick={addIngredients}>+</button>
         <div>
           <label htmlFor="direction" className="block">
             Add the directions:{" "}
