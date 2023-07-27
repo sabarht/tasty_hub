@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
-export default function RecipeList({ data }) {
+import SaveButton from "../saveButton/savaButton";
+export default function RecipeList({ data, handleSave }) {
   const router = useRouter();
-  const { id } = router.query;
 
   return (
     <section className="flex justify-center flex-wrap md:flex-row">
@@ -32,7 +32,7 @@ export default function RecipeList({ data }) {
               </ul>
             </li>
           </span>
-          <div className="inline">SAVE</div>
+          <SaveButton handleSave={handleSave} />
         </ul>
       ))}
     </section>
