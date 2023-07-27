@@ -72,9 +72,8 @@ export default function RecipeForm({ onSubmit, formName }) {
 
             //   defaultValue={defaultData?.name}
           />{" "}
+          {<p>{appendedInput}</p>}
         </div>
-
-        {<p>{appendedInput}</p>}
 
         <button onClick={addIngredients}>+</button>
         <div>

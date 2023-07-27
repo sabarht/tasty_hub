@@ -5,7 +5,7 @@ import Layout from "../layout/layout";
 export default function RecipeDetails({ data }) {
   const router = useRouter();
 
-  const { title, image, creator, direction, description } = data;
+  const { title, image, creator, direction, ingredients, description } = data;
   return (
     <>
       <button
