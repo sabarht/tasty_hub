@@ -1,15 +1,7 @@
-export default function SaveButton({ data }) {
-  // const { savedRecipes, handleToggleSave } = useStore();
-  // const selectedRecipe = data?.find((Recipe) => Recipe._id === id);
-  // const isSaved = savedRecipes.find((rest) => rest === selectedRecipe?._id);
+export default function SaveButton({ recipe, handleToggleFavorite }) {
   return (
-    <button
-      type="button"
-      // onClick={(e) => {
-      //   e.preventDefault;
-      //   handleToggleSave(data._id);
-      // }}
-    >
+    <button type="button" onClick={() => handleToggleFavorite(recipe._id)}>
+
       Save
     </button>
   );
