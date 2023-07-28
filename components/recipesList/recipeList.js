@@ -1,8 +1,11 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
+// import { useRecipesStore } from "../../src/store/store";
+
 import SaveButton from "../saveButton/savaButton";
-export default function RecipeList({ data, handleSave }) {
+export default function RecipeList({ data }) {
   const router = useRouter();
+  // const { recipes } = useRecipesStore();
 
   return (
     <section className="flex justify-center flex-wrap md:flex-row">
@@ -32,7 +35,7 @@ export default function RecipeList({ data, handleSave }) {
               </ul>
             </li>
           </span>
-          <SaveButton handleSave={handleSave} />
+          {/* <SaveButton handleSave={handleSave} recipe={recipe} /> */}
         </ul>
       ))}
     </section>
