@@ -4,11 +4,12 @@ import RecipeListItem from "../../components/recipeListItem/recipeListItem";
 import Navigation from "../../components/navigation/navigation";
 import LoginButton from "../../components/loginButton/loginButton";
 import useSWR from "swr";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ handleToggleFavorite, savedRecipes }) {
   const { data } = useSWR("/api/recipes");
-  console.log(savedRecipes);
+
   if (!data) {
     return <h1>Loading...</h1>;
   }
@@ -35,11 +36,13 @@ export default function Home({ handleToggleFavorite, savedRecipes }) {
           })}
         </ul>
         <LoginButton />
+
         <RecipeList
           data={data}
           handleToggleFavorite={handleToggleFavorite}
           savedRecipes={savedRecipes}
         />
+
       </main>
     </>
   );
