@@ -2,7 +2,7 @@ import "@/styles/globals.css";
 import { SWRConfig } from "swr";
 import { SessionProvider } from "next-auth/react";
 import { useState } from "react";
-let isFavorite = false;
+let isSaved = false;
 
 export default function App({
   Component,
@@ -13,12 +13,12 @@ export default function App({
   function handleToggleFavorite(_id) {
     if (savedRecipes.includes(_id)) {
       setSavedRecipes(savedRecipes.filter((element) => element !== _id));
-      isFavorite = false;
+      isSaved = false;
     } else {
       setSavedRecipes([...savedRecipes, _id]);
-      isFavorite = true;
+      isSaved = true;
     }
-    console.log("isFavorite", isFavorite);
+    console.log("isSaved", isSaved);
   }
   return (
     <SessionProvider session={session}>

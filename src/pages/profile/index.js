@@ -1,5 +1,4 @@
 import Navigation from "../../../components/navigation/navigation";
-
 import Link from "next/link";
 
 export default function ProfilePage() {
@@ -11,7 +10,9 @@ export default function ProfilePage() {
           Add New Recipe
         </Link>
       </button>
-      <div className="p-2">Saved Recipes</div>
+      <Link href="/profile/saved" passHref>
+        Saved Recipes
+      </Link>
     </>
   );
 }
