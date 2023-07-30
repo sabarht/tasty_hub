@@ -1,7 +1,11 @@
 import Image from "next/image";
 import SaveButton from "../saveButton/savaButton";
 
-export default function RecipeListItem({ recipe, handleToggleFavorite }) {
+export default function RecipeListItem({
+  recipe,
+  handleToggleFavorite,
+  isSaved,
+}) {
   return (
     <ul
       key={recipe._id}
@@ -25,7 +29,11 @@ export default function RecipeListItem({ recipe, handleToggleFavorite }) {
           </ul>
         </li>
       </span>
-      <SaveButton handleToggleFavorite={handleToggleFavorite} recipe={recipe} />
+      <SaveButton
+        handleToggleFavorite={handleToggleFavorite}
+        isSaved={isSaved}
+        recipe={recipe}
+      />
     </ul>
   );
 }

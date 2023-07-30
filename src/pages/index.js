@@ -6,7 +6,7 @@ import useSWR from "swr";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home({ handleToggleFavorite, savedRecipes }) {
+export default function Home({ handleToggleFavorite, savedRecipes, isSaved }) {
   const { data } = useSWR("/api/recipes");
 
   if (!data) {
@@ -25,6 +25,7 @@ export default function Home({ handleToggleFavorite, savedRecipes }) {
           data={data}
           handleToggleFavorite={handleToggleFavorite}
           savedRecipes={savedRecipes}
+          isSaved={isSaved}
         />
       </main>
     </>

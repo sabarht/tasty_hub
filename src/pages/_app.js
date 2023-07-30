@@ -37,6 +37,7 @@ export default function App({
           {...pageProps}
           handleToggleFavorite={handleToggleFavorite}
           savedRecipes={savedRecipes}
+          isSaved={isSaved}
         />
       </SWRConfig>
     </SessionProvider>

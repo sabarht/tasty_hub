@@ -1,6 +1,7 @@
 import RecipeListItem from "../../../components/recipeListItem/recipeListItem";
 import useSWR from "swr";
 import Link from "next/link";
+import Layout from "../../../components/layout/layout";
 
 export default function SavedPage({ savedRecipes, handleToggleFavorite }) {
   const { data } = useSWR("/api/recipes");
@@ -8,23 +9,25 @@ export default function SavedPage({ savedRecipes, handleToggleFavorite }) {
     return <h1>Loading...</h1>;
   }
   return (
-    <ul>
-      <Link href="/profile" passHref>
-        Back to Profile{" "}
-      </Link>
-      {data.map((recipe) => {
-        return (
-          <li key={recipe._id}>
-            {savedRecipes.includes(recipe._id) && (
-              <RecipeListItem
-                recipe={recipe}
-                handleToggleFavorite={handleToggleFavorite}
-                savedRecipes={savedRecipes}
-              />
-            )}
-          </li>
-        );
-      })}
-    </ul>
+    <Layout>
+      <ul>
+        <Link href="/profile" passHref>
+          Back to Profile{" "}
+        </Link>
+        {data.map((recipe) => {
+          return (
+            <li key={recipe._id}>
+              {savedRecipes.includes(recipe._id) && (
+                <RecipeListItem
+                  recipe={recipe}
+                  handleToggleFavorite={handleToggleFavorite}
+                  savedRecipes={savedRecipes}
+                />
+              )}
+            </li>
+          );
+        })}
+      </ul>
+    </Layout>
   );
 }
