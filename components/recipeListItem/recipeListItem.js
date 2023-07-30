@@ -5,6 +5,7 @@ export default function RecipeListItem({
   recipe,
   handleToggleFavorite,
   isSaved,
+  savedRecipes,
 }) {
   return (
     <ul
@@ -33,6 +34,7 @@ export default function RecipeListItem({
         handleToggleFavorite={handleToggleFavorite}
         isSaved={isSaved}
         recipe={recipe}
+        savedRecipes={savedRecipes}
       />
     </ul>
   );

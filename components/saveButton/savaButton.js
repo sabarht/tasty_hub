@@ -1,8 +1,34 @@
-export default function SaveButton({ recipe, handleToggleFavorite, isSaved }) {
+export default function SaveButton({
+  recipe,
+  savedRecipes,
+  handleToggleFavorite,
+  isSaved,
+}) {
   console.log("isSaved9", isSaved);
+
   return (
-    <button type="button" onClick={() => handleToggleFavorite(recipe._id)}>
-      {isSaved ? "meow" : "save"}
-    </button>
+    <>
+      {savedRecipes.includes(recipe._id) ? (
+        <button
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            handleToggleFavorite(recipe._id);
+          }}
+        >
+          saved
+        </button>
+      ) : (
+        <button
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            handleToggleFavorite(recipe._id);
+          }}
+        >
+          not
+        </button>
+      )}
+    </>
   );
 }

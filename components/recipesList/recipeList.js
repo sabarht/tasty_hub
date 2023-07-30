@@ -1,7 +1,12 @@
 import { useRouter } from "next/router";
 import RecipeListItem from "../recipeListItem/recipeListItem";
 
-export default function RecipeList({ data, handleToggleFavorite, isSaved }) {
+export default function RecipeList({
+  data,
+  savedRecipes,
+  handleToggleFavorite,
+  isSaved,
+}) {
   const router = useRouter();
 
   return (
@@ -10,6 +15,7 @@ export default function RecipeList({ data, handleToggleFavorite, isSaved }) {
         <RecipeListItem
           recipe={recipe}
           key={recipe._id}
+          savedRecipes={savedRecipes}
           handleToggleFavorite={handleToggleFavorite}
           isSaved={isSaved}
         />
