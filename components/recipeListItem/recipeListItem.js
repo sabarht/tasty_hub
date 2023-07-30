@@ -1,5 +1,6 @@
 import Image from "next/image";
-import SaveButton from "../saveButton/savaButton";
+import SaveButton from "../saveButton/saveButton";
+import { useRouter } from "next/router";
 
 export default function RecipeListItem({
   recipe,
@@ -7,10 +8,12 @@ export default function RecipeListItem({
   isSaved,
   savedRecipes,
 }) {
+  const router = useRouter();
+
   return (
-    <ul
+    <article
       key={recipe._id}
-      className="flex-col  m-2 p-2 border-2 rounded-md border-gray-400"
+      className="flex-col  m-2  rounded-md border-gray-400 bg-customGrey relative"
     >
       <span onClick={() => router.push(`/${recipe._id}`)} className="flex-col">
         <div className="w-80 h-80">
@@ -19,16 +22,14 @@ export default function RecipeListItem({
             width={400}
             height={400}
             alt={recipe.description}
-            className="w-full h-full  object-cover  rounded-md"
+            className="w-full h-full  object-cover rounded-t"
           ></Image>
         </div>
 
-        <li className="flex justify-between">
-          <ul className="flex-column">
-            <li>{recipe.title}</li>
-            <li>{recipe.creator} </li>
-          </ul>
-        </li>
+        <ul className="flex flex-col justify-between p-2">
+          <li>{recipe.title}</li>
+          <li>{recipe.creator} </li>
+        </ul>
       </span>
       <SaveButton
         handleToggleFavorite={handleToggleFavorite}
@@ -36,6 +37,6 @@ export default function RecipeListItem({
         recipe={recipe}
         savedRecipes={savedRecipes}
       />
-    </ul>
+    </article>
   );
 }

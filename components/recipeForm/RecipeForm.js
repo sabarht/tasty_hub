@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import Button from "../button/button";
 export default function RecipeForm({ onSubmit, formName }) {
   const [appendedInput, setAppendedInput] = useState("");
   function addIngredients() {
@@ -13,7 +13,7 @@ export default function RecipeForm({ onSubmit, formName }) {
 
           //   defaultValue={defaultData?.name}
         />
-        <button onClick={removeIngredients}>-</button>
+        <Button onClick={removeIngredients}>-</Button>
       </div>
     );
     setAppendedInput([...appendedInput, newAppendInput]);
@@ -75,7 +75,7 @@ export default function RecipeForm({ onSubmit, formName }) {
           {<p>{appendedInput}</p>}
         </div>
 
-        <button onClick={addIngredients}>+</button>
+        <Button onClick={addIngredients}>+</Button>
         <div>
           <label htmlFor="direction" className="block">
             Add the directions:{" "}
@@ -84,12 +84,12 @@ export default function RecipeForm({ onSubmit, formName }) {
             name="direction"
             id="direction"
             type="text"
-            className="border-2"
+            className="border-2 "
 
             //   defaultValue={defaultData?.name}
           />
         </div>
-        <button type="submit">Submit</button>
+        <Button type="submit">Submit</Button>
       </form>
     </>
   );

@@ -1,7 +1,7 @@
 import Link from "next/link";
 export default function Navigation() {
   return (
-    <ul className="flex justify-around p-4 bg-orange-600 ">
+    <ul className="flex justify-around p-4 bg-customGreen text-white">
       <li>
         <Link href="/">Home</Link>
       </li>
