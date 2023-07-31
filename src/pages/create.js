@@ -2,6 +2,7 @@ import RecipeForm from "../../components/recipeForm/RecipeForm";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import useSWR from "swr";
+import Layout from "../../components/layout/layout";
 
 export default function CreatePage() {
   const router = useRouter();
@@ -31,7 +32,9 @@ export default function CreatePage() {
   return (
     <>
       <Link href="/profile">Back </Link>
-      <RecipeForm onSubmit={handleSubmit} formName={"add-recipe"} />
+      <Layout>
+        <RecipeForm onSubmit={handleSubmit} formName={"add-recipe"} />
+      </Layout>
     </>
   );
 }

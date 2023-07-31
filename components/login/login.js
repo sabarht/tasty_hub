@@ -1,6 +1,7 @@
 import { useSession, signIn, signOut } from "next-auth/react";
 import Image from "next/image";
-export default function LoginButton() {
+import Button from "../button/button";
+export default function Login() {
   const { data: session, status } = useSession();
   if (status === "loading") {
     return <div>Loading...</div>;
@@ -15,14 +16,26 @@ export default function LoginButton() {
           height={50}
           alt="Image of user"
         />
-        <button onClick={() => signOut()}>Sign out</button>
+        <button
+          onClick={() => signOut()}
+          type="button"
+          className="border-2 p-1.5 px-6 rounded-lg"
+        >
+          Sign out
+        </button>
       </>
     );
   }
   return (
     <>
       Not signed in <br />
-      <button onClick={() => signIn()}>Sign in</button>
+      <button
+        onClick={() => signIn()}
+        type="button"
+        className="border-2 p-1.5 px-6 rounded-lg"
+      >
+        Sign in
+      </button>
     </>
   );
 }

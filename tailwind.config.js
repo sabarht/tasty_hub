@@ -9,13 +9,14 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
-    // colors: {
-    //   current: "currentColor",
-    //   green: "#2A5846",
-    //   orange: "#F4BD93",
-    //   "bubble-gum": "#ff77e9",
-    // },
+    extend: {
+      colors: {
+        customRed: "#FF0000",
+        customOrange: "#F4BD93",
+        customGreen: "#2A5846",
+        customGrey: "#D9D9D9",
+      },
+    },
   },
   plugins: [],
 };

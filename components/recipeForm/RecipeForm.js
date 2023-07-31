@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import Button from "../button/button";
 export default function RecipeForm({ onSubmit, formName }) {
   const [appendedInput, setAppendedInput] = useState("");
   function addIngredients() {
@@ -13,7 +13,12 @@ export default function RecipeForm({ onSubmit, formName }) {
 
           //   defaultValue={defaultData?.name}
         />
-        <button onClick={removeIngredients}>-</button>
+        <button
+          onClick={removeIngredients}
+          className="border-2 p-1.5 px-4 rounded-lg"
+        >
+          -
+        </button>
       </div>
     );
     setAppendedInput([...appendedInput, newAppendInput]);
@@ -31,7 +36,7 @@ export default function RecipeForm({ onSubmit, formName }) {
       <form
         aria-labelledby={formName}
         onSubmit={onSubmit}
-        className="border-2 p-3 flex-col justify-center space-y-3"
+        className="w-1/2 border-2 p-3 flex-col justify-center space-y-3"
       >
         <div>
           <label htmlFor="title" className="block">
@@ -41,7 +46,7 @@ export default function RecipeForm({ onSubmit, formName }) {
             name="title"
             id="title"
             type="text"
-            className="border-2"
+            className="border-2 w-full p-2 rounded-md"
 
             //   defaultValue={defaultData?.name}
           />
@@ -55,27 +60,33 @@ export default function RecipeForm({ onSubmit, formName }) {
             name="description"
             id="description"
             type="text"
-            className="border-2"
+            className="border-2 w-full p-2 rounded-md"
 
             //   defaultValue={defaultData?.name}
-          />{" "}
+          />
         </div>
         <div>
           <label htmlFor="ingredients" className="block">
-            Add a ingredients:{" "}
+            Add ingredients:
           </label>
           <input
             name="ingredients"
             id="ingredients"
             type="text"
-            className="border-2"
+            className="border-2 w-full p-2 rounded-md"
 
             //   defaultValue={defaultData?.name}
           />{" "}
           {<p>{appendedInput}</p>}
         </div>
 
-        <button onClick={addIngredients}>+</button>
+        <button
+          type="button"
+          className="border-2 p-1.5 px-4 rounded-lg p-2 rounded-md"
+          onClick={addIngredients}
+        >
+          +
+        </button>
         <div>
           <label htmlFor="direction" className="block">
             Add the directions:{" "}
@@ -84,7 +95,7 @@ export default function RecipeForm({ onSubmit, formName }) {
             name="direction"
             id="direction"
             type="text"
-            className="border-2"
+            className="border-2 w-full p-2 rounded-md"
 
             //   defaultValue={defaultData?.name}
           />

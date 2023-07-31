@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import RecipeListItem from "../recipeListItem/recipeListItem";
 
 export default function RecipeList({
@@ -7,8 +6,6 @@ export default function RecipeList({
   handleToggleFavorite,
   isSaved,
 }) {
-  const router = useRouter();
-
   return (
     <section className="flex justify-center flex-wrap md:flex-row">
       {data.map((recipe) => (

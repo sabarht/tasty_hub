@@ -2,8 +2,9 @@ import RecipeDetails from "../../components/recipeDetails/recipeDetails";
 import Navigation from "../../components/navigation/navigation";
 import useSWR from "swr";
 import { useRouter } from "next/router";
-// import Layout from "../../components/layout/layout";
-
+import Layout from "../../components/layout/layout";
+import Button from "../../components/button/button";
+import Link from "next/link";
 export default function RecipeDetailsPage() {
   const router = useRouter();
   const { id } = router.query;
@@ -21,8 +22,12 @@ export default function RecipeDetailsPage() {
   return (
     <>
       <Navigation />
-      {/* <Layout> */}
-      <RecipeDetails data={data} />;{/* </Layout> */}
+      <Button className="p-2 rounded border-black border-solid border-2">
+        <Link href={"/"}>BACK</Link>
+      </Button>
+      <Layout>
+        <RecipeDetails data={data} />;
+      </Layout>
     </>
   );
 }
