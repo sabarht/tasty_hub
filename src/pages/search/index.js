@@ -4,7 +4,7 @@ import Navigation from "../../../components/navigation/navigation";
 import { useState } from "react";
 import useSWR from "swr";
 import Layout from "../../../components/layout/layout";
-import Button from "../../../components/button/button";
+// import Button from "../../../components/button/button";
 export default function SearchPage({ savedRecipes }) {
   const { data } = useSWR("/api/recipes");
   const [searchResults, setSearchResults] = useState([]);
@@ -33,24 +33,24 @@ export default function SearchPage({ savedRecipes }) {
       <Layout>
         <ul className="flex space-x-4 m-2">
           <li>
-            {" "}
-            <Button
+            <button
+              className="border-2 p-1.5 px-6 rounded-lg"
               onClick={() => {
                 handleFilter("Iranian");
               }}
             >
               Iranian
-            </Button>
+            </button>
           </li>
           <li>
-            {" "}
-            <Button
+            <button
+              className="border-2 p-1.5 px-6 rounded-lg"
               onClick={() => {
                 handleFilter("Italian");
               }}
             >
               Italian
-            </Button>
+            </button>
           </li>
         </ul>
 

@@ -26,7 +26,7 @@ export default function RecipeListItem({
           ></Image>
         </div>
 
-        <ul className="flex flex-col justify-between p-2">
+        <ul className="flex flex-col justify-between py-4 px-2">
           <li>{recipe.title}</li>
           <li>{recipe.creator} </li>
         </ul>

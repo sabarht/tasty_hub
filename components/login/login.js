@@ -16,14 +16,26 @@ export default function Login() {
           height={50}
           alt="Image of user"
         />
-        <Button onClick={() => signOut()}>Sign out</Button>
+        <button
+          onClick={() => signOut()}
+          type="button"
+          className="border-2 p-1.5 px-6 rounded-lg"
+        >
+          Sign out
+        </button>
       </>
     );
   }
   return (
     <>
       Not signed in <br />
-      <Button onClick={() => signIn()}>Sign in</Button>
+      <button
+        onClick={() => signIn()}
+        type="button"
+        className="border-2 p-1.5 px-6 rounded-lg"
+      >
+        Sign in
+      </button>
     </>
   );
 }
