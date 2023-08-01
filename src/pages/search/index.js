@@ -34,7 +34,7 @@ export default function SearchPage({ savedRecipes }) {
         <ul className="flex space-x-4 m-2">
           <li>
             <button
-              className="border-2 p-1.5 px-6 rounded-lg"
+              className=" border-2 p-1.5 px-6 rounded-lg"
               onClick={() => {
                 handleFilter("Iranian");
               }}

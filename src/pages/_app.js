@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import { SWRConfig } from "swr";
 import { SessionProvider } from "next-auth/react";
 import { useState } from "react";
+
 let isSaved = false;
 
 export default function App({
