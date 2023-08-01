@@ -21,6 +21,12 @@ export default function CreatePage() {
       setIngredient("");
     }
   }
+
+  function deleteIngredient(index) {
+    const updatedIngredients = [...appendedInput];
+    updatedIngredients.splice(index, 1);
+    setAppendedInput(updatedIngredients);
+  }
   async function handleSubmit(event) {
     event.preventDefault();
 
@@ -52,6 +58,7 @@ export default function CreatePage() {
         <RecipeForm
           onSubmit={handleSubmit}
           onClick={addIngredient}
+          onClickDelete={deleteIngredient}
           onChange={handleInputChange}
           formName={"add-recipe"}
           appendedInput={appendedInput}

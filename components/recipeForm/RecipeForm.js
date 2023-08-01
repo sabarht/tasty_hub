@@ -3,6 +3,7 @@ export default function RecipeForm({
   formName,
   onChange,
   onClick,
+  onClickDelete,
   appendedInput,
 }) {
   console.log("mmm", appendedInput);
@@ -47,7 +48,6 @@ export default function RecipeForm({
             type="text"
             className="border-2 w-full p-2 rounded-md"
           />{" "}
-          {/* {<p>{appendedInput}</p>} */}
         </div>
 
         <button
@@ -59,7 +59,10 @@ export default function RecipeForm({
         </button>
         <ul>
           {appendedInput.map((ing, index) => (
-            <li key={index}>{ing}</li>
+            <li key={index}>
+              <div>{ing}</div>
+              <button onClick={() => onClickDelete(index)}>-</button>
+            </li>
           ))}
         </ul>
         <div>
