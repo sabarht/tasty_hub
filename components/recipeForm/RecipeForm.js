@@ -1,33 +1,16 @@
-import React, { useState } from "react";
-export default function RecipeForm({ onSubmit, formName }) {
-  const [appendedInput, setAppendedInput] = useState("");
-  function addIngredients() {
-    const newAppendInput = (
-      <div>
-        <input
-          name="ingredients"
-          id="ingredients"
-          type="text"
-          className="border-2"
-        />
-        <button
-          onClick={removeIngredients}
-          className="border-2 p-1.5 px-4 rounded-lg"
-        >
-          -
-        </button>
-      </div>
-    );
-    setAppendedInput([...appendedInput, newAppendInput]);
-    console.log("add", appendedInput);
-  }
-  function removeIngredients() {
-    console.log("remove", appendedInput.slice(0, -1));
-
-    const deleteInput = [...appendedInput];
-
-    setAppendedInput(deleteInput.slice(0, deleteInput.length));
-  }
+export default function RecipeForm({
+  onSubmit,
+  formName,
+  onChange,
+  onClick,
+  onClickDelete,
+  appendedInput,
+  onAddDirection,
+  onDirectionDelete,
+  onChangeDirection,
+  appendedDirection,
+}) {
+  console.log("mmm", appendedInput);
   return (
     <>
       <form
@@ -63,32 +46,56 @@ export default function RecipeForm({ onSubmit, formName }) {
             Add ingredients:
           </label>
           <input
+            onChange={onChange}
             name="ingredients"
             id="ingredients"
             type="text"
             className="border-2 w-full p-2 rounded-md"
           />{" "}
-          {<p>{appendedInput}</p>}
         </div>
 
         <button
           type="button"
           className="border-2 p-1.5 px-4 rounded-lg p-2 rounded-md"
-          onClick={addIngredients}
+          onClick={onClick}
         >
           +
         </button>
+        <ul>
+          {appendedInput.map((ing, index) => (
+            <li key={index}>
+              <div>{ing}</div>
+              <button onClick={() => onClickDelete(index)}>-</button>
+            </li>
+          ))}
+        </ul>
         <div>
           <label htmlFor="direction" className="block">
             Add the directions:{" "}
           </label>
           <input
+            onChange={onChangeDirection}
             name="direction"
             id="direction"
             type="text"
             className="border-2 w-full p-2 rounded-md"
           />
         </div>
+        <button
+          type="button"
+          className="border-2 p-1.5 px-4 rounded-lg p-2 rounded-md"
+          onClick={onAddDirection}
+        >
+          +
+        </button>
+        <ul>
+          {appendedDirection.map((ing, index) => (
+            <li key={index}>
+              <div>{ing}</div>
+              <button onClick={() => onDirectionDelete(index)}>-</button>
+            </li>
+          ))}
+        </ul>
         <button type="submit">Submit</button>
       </form>
     </>

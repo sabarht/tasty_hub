@@ -5,8 +5,8 @@ export default function RecipeDetails({ data }) {
   const router = useRouter();
 
   const { title, image, creator, direction, ingredients, description } = data;
-  const arrayOfIngredients = ingredients.split("\n");
-  const arrayOfDirections = direction.split("\n");
+  // const arrayOfIngredients = ingredients.split("\n");
+  // const arrayOfDirections = direction.split("\n");
   return (
     <>
       <div>
@@ -33,16 +33,16 @@ export default function RecipeDetails({ data }) {
             Ingredients:
           </h3>
           <ul>
-            {arrayOfIngredients.map((string) => (
-              <li key={string}>{string}</li>
+            {ingredients.map((ingredient) => (
+              <li key={ingredient}>{ingredient}</li>
             ))}
           </ul>
           <h3 className="text-2xl font-semibold text-gray-800 my-4">
-            Directins:
+            Directions:
           </h3>
 
           <ul>
-            {arrayOfDirections.map((string) => (
+            {direction.map((string) => (
               <li key={string}>{string}</li>
             ))}
           </ul>
