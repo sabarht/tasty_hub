@@ -3,16 +3,32 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import Layout from "../../components/layout/layout";
+import React, { useState } from "react";
 
 export default function CreatePage() {
   const router = useRouter();
   const recipes = useSWR("/api/recipes");
+  const [appendedInput, setAppendedInput] = useState([]);
+  const [ingredient, setIngredient] = useState("");
+
+  function handleInputChange(event) {
+    setIngredient(event.target.value);
+  }
+
+  function addIngredient() {
+    if (ingredient.trim() !== "") {
+      setAppendedInput([...appendedInput, ingredient]);
+      setIngredient("");
+    }
+  }
   async function handleSubmit(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    console.log("meow", data);
+    console.log("meow");
+    const newData = { ...data, ingredients: appendedInput };
+    console.log({ newData });
     const response = await fetch("/api/recipes", {
       method: "POST",
       body: JSON.stringify(data),
@@ -33,7 +49,13 @@ export default function CreatePage() {
     <>
       <Link href="/profile">Back </Link>
       <Layout className="w-3/4">
-        <RecipeForm onSubmit={handleSubmit} formName={"add-recipe"} />
+        <RecipeForm
+          onSubmit={handleSubmit}
+          onClick={addIngredient}
+          onChange={handleInputChange}
+          formName={"add-recipe"}
+          appendedInput={appendedInput}
+        />
       </Layout>
     </>
   );
