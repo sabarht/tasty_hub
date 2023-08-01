@@ -32,7 +32,7 @@ export default function CreatePage() {
   return (
     <>
       <Link href="/profile">Back </Link>
-      <Layout>
+      <Layout className="w-3/4">
         <RecipeForm onSubmit={handleSubmit} formName={"add-recipe"} />
       </Layout>
     </>

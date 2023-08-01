@@ -3,12 +3,8 @@ import { MdOutlineFavoriteBorder } from "react-icons/md";
 export default function SaveButton({
   recipe,
   savedRecipes,
-
   handleToggleFavorite,
-  isSaved,
 }) {
-  console.log("isSavesavedRecipesd9", savedRecipes);
-
   return (
     <>
       {savedRecipes.includes(recipe._id) ? (
