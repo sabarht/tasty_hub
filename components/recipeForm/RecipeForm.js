@@ -5,6 +5,10 @@ export default function RecipeForm({
   onClick,
   onClickDelete,
   appendedInput,
+  onAddDirection,
+  onDirectionDelete,
+  onChangeDirection,
+  appendedDirection,
 }) {
   console.log("mmm", appendedInput);
   return (
@@ -70,12 +74,28 @@ export default function RecipeForm({
             Add the directions:{" "}
           </label>
           <input
+            onChange={onChangeDirection}
             name="direction"
             id="direction"
             type="text"
             className="border-2 w-full p-2 rounded-md"
           />
         </div>
+        <button
+          type="button"
+          className="border-2 p-1.5 px-4 rounded-lg p-2 rounded-md"
+          onClick={onAddDirection}
+        >
+          +
+        </button>
+        <ul>
+          {appendedDirection.map((ing, index) => (
+            <li key={index}>
+              <div>{ing}</div>
+              <button onClick={() => onDirectionDelete(index)}>-</button>
+            </li>
+          ))}
+        </ul>
         <button type="submit">Submit</button>
       </form>
     </>
