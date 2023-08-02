@@ -29,7 +29,6 @@ export default function CreatePage() {
     updatedIngredients.splice(index, 1);
     setAppendedInput(updatedIngredients);
   }
-  /////
 
   function handleDirectionChange(event) {
     setDirection(event.target.value);
@@ -47,19 +46,16 @@ export default function CreatePage() {
     updatedDirection.splice(index, 1);
     setAppendedDirection(updatedDirection);
   }
-  /////
   async function handleSubmit(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    console.log("meow");
     const newData = {
       ...data,
       ingredients: appendedInput,
       direction: appendedDirection,
     };
-    console.log({ newData });
     const response = await fetch("/api/recipes", {
       method: "POST",
       body: JSON.stringify(newData),

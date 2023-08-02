@@ -10,7 +10,6 @@ export default function RecipeForm({
   onChangeDirection,
   appendedDirection,
 }) {
-  console.log("mmm", appendedInput);
   return (
     <>
       <form

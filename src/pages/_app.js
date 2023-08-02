@@ -19,7 +19,6 @@ export default function App({
       setSavedRecipes([...savedRecipes, _id]);
       isSaved = true;
     }
-    console.log("isSaved", isSaved);
   }
   return (
     <SessionProvider session={session}>

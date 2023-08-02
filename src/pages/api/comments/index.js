@@ -11,9 +11,7 @@ export default async function handler(request, response) {
   if (request.method === "POST") {
     try {
       const commentData = request.body;
-      console.log(commentData);
       const comment = new Comment(commentData);
-      console.log("cmt", comment);
 
       await comment.save();
 
