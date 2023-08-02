@@ -8,8 +8,6 @@ export default function CommentForm({ onSubmit }) {
         name="comment"
         className="w-full resize-none border border-gray-400 rounded-md p-2 focus:outline-none focus:ring focus:border-blue-300"
         placeholder="Start writing"
-        // onChange={(e) => setComment(e.target.value)}
-        // onChange={handleComment}
         required
       />
 
