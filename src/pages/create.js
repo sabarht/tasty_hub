@@ -17,10 +17,11 @@ export default function CreatePage() {
     setIngredient(event.target.value);
   }
 
-  function addIngredient() {
+  function addIngredient(e) {
     if (ingredient.trim() !== "") {
       setAppendedInput([...appendedInput, ingredient]);
       setIngredient("");
+      e.target.form.reset(); // Reset the form
     }
   }
 
@@ -34,11 +35,12 @@ export default function CreatePage() {
     setDirection(event.target.value);
   }
 
-  function addDirection() {
+  function addDirection(e) {
     if (direction.trim() !== "") {
       setAppendedDirection([...appendedDirection, direction]);
       setDirection("");
     }
+    e.target.form.reset(); // Reset the form
   }
 
   function deleteDirection(index) {

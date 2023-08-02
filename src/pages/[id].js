@@ -38,7 +38,7 @@ export default function RecipeDetailsPage() {
       mutate();
       setComments([...comments, commentData.comment]);
 
-      // form.reset();
+      e.target.reset();
     } else {
       console.error(`Error: ${response.status}`);
     }
