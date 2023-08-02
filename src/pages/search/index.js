@@ -13,7 +13,6 @@ export default function SearchPage({ savedRecipes }) {
   function handleSearchResults(e) {
     e.preventDefault();
     setSearchValue(e.target.value);
-    console.log("search", searchValue);
     if (data) {
       const filteredResults = data.filter((recipe) =>
         recipe.title.toLowerCase().includes(searchValue.toLowerCase())
@@ -24,7 +23,6 @@ export default function SearchPage({ savedRecipes }) {
   }
   function handleFilter(category) {
     const results = data.filter((recipe) => recipe.category == category);
-    console.log(results);
     setSearchResults(results);
   }
   return (
