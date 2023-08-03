@@ -15,7 +15,7 @@ export default function RecipeDetailsPage() {
   const { data } = useSWR(id ? `/api/recipes/${id}` : null);
 
   console.log(id);
-  const { mutate } = useSWR("/api/comments");
+  const { data: allComments, mutate } = useSWR(`/api/comments?id=${id}`);
   const [comments, setComments] = useState([]);
 
   async function handleComment(e) {
@@ -26,7 +26,7 @@ export default function RecipeDetailsPage() {
 
     console.log("comment", commentData);
 
-    const response = await fetch("/api/comments", {
+    const response = await fetch(`/api/comments?id=${id}`, {
       method: "POST",
       body: JSON.stringify(commentData),
       headers: {
@@ -62,9 +62,10 @@ export default function RecipeDetailsPage() {
         <RecipeDetails data={data} />
         <CommentForm onSubmit={handleComment} />
         <ul>
-          {comments.map((comment, index) => (
-            <li key={`local-comment-${index}`}>{comment}</li>
-          ))}
+          {allComments &&
+            allComments.map((comment, index) => (
+              <li key={`database-comment-${index}`}>{comment.comment}</li>
+            ))}
         </ul>
       </Layout>
     </>
