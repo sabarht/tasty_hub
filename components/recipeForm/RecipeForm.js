@@ -28,6 +28,17 @@ export default function RecipeForm({
             className="border-2 w-full p-2 rounded-md"
           />
         </div>
+        <div>
+          <label htmlFor="image" className="block">
+            Add recipes image:{" "}
+          </label>
+          <input
+            name="image"
+            id="image"
+            type="text"
+            className="border-2 w-full p-2 rounded-md"
+          />
+        </div>
 
         <div>
           <label htmlFor="description" className="block">

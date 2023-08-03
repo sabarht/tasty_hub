@@ -17,7 +17,6 @@ export default async function handler(request, response) {
 
       const recipe = new Recipe(recipeData);
       recipe.user = session.user._id;
-      console.log(recipe);
       await recipe.save();
 
       return response.status(201).json({ status: "Recipe created" });

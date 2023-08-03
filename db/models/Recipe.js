@@ -12,6 +12,10 @@ const recipeSchema = new Schema({
     type: Array,
     required: true,
   },
+  image: {
+    type: String,
+    required: true,
+  },
   description: {
     type: String,
     required: true,
