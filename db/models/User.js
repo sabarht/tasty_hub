@@ -19,10 +19,7 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  emailVerified: {
-    type: Date,
-    default: null,
-  },
+  comments: { type: [Schema.Types.ObjectId], ref: "Comment" },
 });
 
 const User = mongoose.models.User || mongoose.model("User", userSchema);
