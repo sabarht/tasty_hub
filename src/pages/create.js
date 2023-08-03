@@ -16,12 +16,12 @@ export default function CreatePage() {
   function handleInputChange(event) {
     setIngredient(event.target.value);
   }
-
-  function addIngredient(e) {
+  function addIngredient() {
     if (ingredient.trim() !== "") {
       setAppendedInput([...appendedInput, ingredient]);
       setIngredient("");
-      e.target.form.reset(); // Reset the form
+
+      // e.target.form.reset(); // Reset the form
     }
   }
 
@@ -40,7 +40,7 @@ export default function CreatePage() {
       setAppendedDirection([...appendedDirection, direction]);
       setDirection("");
     }
-    e.target.form.reset(); // Reset the form
+    // e.target.form.reset(); // Reset the form
   }
 
   function deleteDirection(index) {
