@@ -9,6 +9,7 @@ export default function RecipeForm({
   onDirectionDelete,
   onChangeDirection,
   appendedDirection,
+  defaultValue,
 }) {
   return (
     <>
@@ -22,6 +23,7 @@ export default function RecipeForm({
             Add recipes title:{" "}
           </label>
           <input
+            defaultValue={defaultValue?.title}
             name="title"
             id="title"
             type="text"
@@ -37,6 +39,7 @@ export default function RecipeForm({
             id="image"
             type="text"
             className="border-2 w-full p-2 rounded-md"
+            defaultValue={defaultValue?.image}
           />
         </div>
 
@@ -49,6 +52,7 @@ export default function RecipeForm({
             id="description"
             type="text"
             className="border-2 w-full p-2 rounded-md"
+            defaultValue={defaultValue?.description}
           />
         </div>
         <label htmlFor="ingredients" className="block">
@@ -61,6 +65,7 @@ export default function RecipeForm({
             id="ingredients"
             type="text"
             className="mr-1.5 flex-grow  border-2 p-2 rounded-md"
+            defaultValue={defaultValue?.ingredients}
           />{" "}
           <button
             type="button"
@@ -88,6 +93,7 @@ export default function RecipeForm({
             id="direction"
             type="text"
             className="mr-1.5 flex-grow  border-2  p-2 rounded-md"
+            defaultValue={defaultValue?.direction}
           />
           <button
             type="button"
@@ -99,7 +105,7 @@ export default function RecipeForm({
         </div>
         <ul>
           {appendedDirection.map((ing, index) => (
-            <li key={index}>
+            <li key={index} className="w-full">
               <div>{ing}</div>
               <button onClick={() => onDirectionDelete(index)}>-</button>
             </li>

@@ -11,7 +11,9 @@ export default function CommentForm({ onSubmit }) {
         required
       />
 
-      <button type="submit">send</button>
+      <button type="submit" className="border-2 p-1.5 px-6 rounded-lg">
+        send
+      </button>
     </form>
   );
 }

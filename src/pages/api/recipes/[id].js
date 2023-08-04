@@ -10,5 +10,14 @@ export default async function handler(request, response) {
       return response.status(404).json({ status: "Not Found" });
     }
     response.status(200).json(recipe);
+  } else if (request.method === "PATCH") {
+    await Recipe.findByIdAndUpdate(id, {
+      $set: request.body,
+    });
+    response.status(200).json({ status: `Recipe ${id} updated!` });
+  } else if (request.method === "DELETE") {
+    await Recipe.findByIdAndDelete(id);
+
+    response.status(200).json({ status: `Recipe ${id} successfully deleted.` });
   }
 }
