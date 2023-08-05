@@ -28,6 +28,17 @@ export default function RecipeForm({
             className="border-2 w-full p-2 rounded-md"
           />
         </div>
+        <div>
+          <label htmlFor="image" className="block">
+            Add recipes image:{" "}
+          </label>
+          <input
+            name="image"
+            id="image"
+            type="text"
+            className="border-2 w-full p-2 rounded-md"
+          />
+        </div>
 
         <div>
           <label htmlFor="description" className="block">
@@ -40,26 +51,25 @@ export default function RecipeForm({
             className="border-2 w-full p-2 rounded-md"
           />
         </div>
-        <div>
-          <label htmlFor="ingredients" className="block">
-            Add ingredients:
-          </label>
+        <label htmlFor="ingredients" className="block">
+          Add ingredients:
+        </label>
+        <div className="w-full flex">
           <input
             onChange={onChange}
             name="ingredients"
             id="ingredients"
             type="text"
-            className="border-2 w-full p-2 rounded-md"
+            className="mr-1.5 flex-grow  border-2 p-2 rounded-md"
           />{" "}
+          <button
+            type="button"
+            className="border-2 p-1.5 px-4 rounded-lg p-2 rounded-md"
+            onClick={onClick}
+          >
+            +
+          </button>
         </div>
-
-        <button
-          type="button"
-          className="border-2 p-1.5 px-4 rounded-lg p-2 rounded-md"
-          onClick={onClick}
-        >
-          +
-        </button>
         <ul>
           {appendedInput.map((ing, index) => (
             <li key={index}>
@@ -68,25 +78,25 @@ export default function RecipeForm({
             </li>
           ))}
         </ul>
-        <div>
-          <label htmlFor="direction" className="block">
-            Add the directions:{" "}
-          </label>
+        <label htmlFor="direction" className="block">
+          Add the directions:{" "}
+        </label>
+        <div className="w-full flex">
           <input
             onChange={onChangeDirection}
             name="direction"
             id="direction"
             type="text"
-            className="border-2 w-full p-2 rounded-md"
+            className="mr-1.5 flex-grow  border-2  p-2 rounded-md"
           />
+          <button
+            type="button"
+            className="border-2 p-1.5 px-4 rounded-lg p-2 rounded-md"
+            onClick={onAddDirection}
+          >
+            +
+          </button>
         </div>
-        <button
-          type="button"
-          className="border-2 p-1.5 px-4 rounded-lg p-2 rounded-md"
-          onClick={onAddDirection}
-        >
-          +
-        </button>
         <ul>
           {appendedDirection.map((ing, index) => (
             <li key={index}>
