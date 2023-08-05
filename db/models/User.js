@@ -19,8 +19,7 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  recipes: { type: [Schema.Types.ObjectId], ref: "Recipe" },
-  favorites: { type: [Schema.Types.ObjectId], ref: "Recipe" },
+  savedRecipes: { type: [Schema.Types.ObjectId], ref: "Recipe" },
 });
 
 const User = mongoose.models.User || mongoose.model("User", userSchema);
