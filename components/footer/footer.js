@@ -3,7 +3,7 @@ import { BsLinkedin } from "react-icons/bs";
 import { BsInstagram } from "react-icons/bs";
 import { BsGithub } from "react-icons/bs";
 
-export default function Footer() {
+export default function Footer({ children }) {
   return (
     <footer className="bg-gray-200 p-4 space-y-4 text-center text-gray-800">
       <div className="space-y-2 ">
@@ -31,6 +31,7 @@ export default function Footer() {
             </Link>
           </li>
         </ul>
+        {children}
       </div>
 
       <div className="border-t-2 border-gray-300"></div>

@@ -1,14 +1,12 @@
 import RecipeDetails from "../../components/recipeDetails/recipeDetails";
-import Navigation from "../../components/navigation/navigation";
 import useSWR from "swr";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
 import Layout from "../../components/layout/layout";
-import Button from "../../components/button/button";
 import Link from "next/link";
 import CommentForm from "../../components/commentForm/commentForm";
-
+import Footer from "../../components/footer/footer";
 export default function RecipeDetailsPage() {
   const router = useRouter();
   const { id } = router.query;
@@ -60,7 +58,6 @@ export default function RecipeDetailsPage() {
   if (!data) {
     return (
       <>
-        <Navigation />
         <h1>Loading...</h1>;
       </>
     );
@@ -68,18 +65,7 @@ export default function RecipeDetailsPage() {
 
   return (
     <>
-      <Navigation />
-      <Button className="p-2 rounded border-black border-solid border-2">
-        <Link href={"/"}>BACK</Link>
-      </Button>
       <Layout>
-        {/* {
-        if (userId === sessionId ) {
-                return(<Link href={`/edit/${data._id}`} passHref legacyBehavior>
-            <button className="border-2 p-1.5 px-6 rounded-lg">edit</button>
-          </Link>)
-     }
-     } */}
         {userId == sessionId ? (
           <Link href={`/edit/${data._id}`} passHref legacyBehavior>
             <button className="border-2 p-1.5 px-6 rounded-lg">edit</button>
@@ -96,13 +82,19 @@ export default function RecipeDetailsPage() {
         ) : null}
         <RecipeDetails data={data} />
         <CommentForm onSubmit={handleComment} />
-        <ul>
+        <ul className="w-full  max-w-lg md:max-w-xl flex flex-col items-start space-y-2">
           {allComments &&
             allComments.map((comment, index) => (
-              <li key={`database-comment-${index}`}>{comment.comment}</li>
+              <li
+                className="w-full p-2 rounded bg-gray-100"
+                key={`database-comment-${index}`}
+              >
+                {comment.comment}
+              </li>
             ))}
         </ul>
       </Layout>
+      <Footer />
     </>
   );
 }

@@ -15,7 +15,6 @@ export default function Home({ handleToggleFavorite, savedRecipes, isSaved }) {
 
   return (
     <>
-      <Navigation />
       <section className="home-header ">
         <div className="p-16 min-h-screen flex flex-col items-center px-24">
           <h4 className="text-white font-serif text-xl font-bold">Tasty Hub</h4>
