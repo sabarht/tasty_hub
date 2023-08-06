@@ -4,6 +4,7 @@ import Navigation from "../../../components/navigation/navigation";
 import { useState } from "react";
 import useSWR from "swr";
 import Layout from "../../../components/layout/layout";
+import Footer from "../../../components/footer/footer";
 // import Button from "../../../components/button/button";
 export default function SearchPage({ savedRecipes }) {
   const { data } = useSWR("/api/recipes");
@@ -29,6 +30,12 @@ export default function SearchPage({ savedRecipes }) {
     <>
       <Navigation />
       <Layout>
+        <section className="search-header ">
+          {" "}
+          <p> Search your cravings</p>
+        </section>
+        <SearchForm onChange={handleSearchResults} />
+
         <ul className="flex space-x-4 m-2">
           <li>
             <button
@@ -52,9 +59,12 @@ export default function SearchPage({ savedRecipes }) {
           </li>
         </ul>
 
-        <SearchForm onChange={handleSearchResults} />
         <RecipeList data={searchResults} savedRecipes={savedRecipes} />
       </Layout>
+      <div className="m-20 text-transparent">.</div>
+      <span className="fixed bottom-0 w-full">
+        <Footer />
+      </span>
     </>
   );
 }

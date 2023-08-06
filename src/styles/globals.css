@@ -5,3 +5,23 @@
 body {
   background-color: #f7f7f7;
 }
+.search-header {
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(222, 222, 222, 0.168)
+    ),
+    url("https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zm9vZHxlbnwwfDB8MHx8fDI%3D&auto=format&fit=crop&w=1400&q=60");
+  /* background-image: url("https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zm9vZHxlbnwwfDB8MHx8fDI%3D&auto=format&fit=crop&w=1400&q=60"); */
+  object-fit: cover;
+  height: 250px;
+  width: 100%;
+  margin-bottom: 12px;
+}
+.search-header p {
+  color: white;
+  position: relative;
+  top: 100px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+}

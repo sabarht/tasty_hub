@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import RecipeList from "../../components/recipesList/recipeList";
 import Navigation from "../../components/navigation/navigation";
 import useSWR from "swr";
+import Footer from "../../components/footer/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +26,7 @@ export default function Home({ handleToggleFavorite, savedRecipes, isSaved }) {
           isSaved={isSaved}
         />
       </main>
+      <Footer />
     </>
   );
 }

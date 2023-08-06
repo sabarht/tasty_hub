@@ -77,7 +77,8 @@ export default function CreatePage() {
   return (
     <>
       <Link href="/profile">Back </Link>
-      <Layout className="w-3/4">
+      <Layout>
+        {/* <Layout className="w-3/4"> */}
         <RecipeForm
           onSubmit={handleSubmit}
           onClick={addIngredient}
