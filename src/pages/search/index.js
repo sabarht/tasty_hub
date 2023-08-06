@@ -29,6 +29,12 @@ export default function SearchPage({ savedRecipes }) {
     <>
       <Navigation />
       <Layout>
+        <section className="search-header ">
+          {" "}
+          <p> Search your cravings</p>
+        </section>
+        <SearchForm onChange={handleSearchResults} />
+
         <ul className="flex space-x-4 m-2">
           <li>
             <button
@@ -52,7 +58,6 @@ export default function SearchPage({ savedRecipes }) {
           </li>
         </ul>
 
-        <SearchForm onChange={handleSearchResults} />
         <RecipeList data={searchResults} savedRecipes={savedRecipes} />
       </Layout>
     </>
