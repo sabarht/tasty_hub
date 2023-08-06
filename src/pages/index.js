@@ -16,8 +16,16 @@ export default function Home({ handleToggleFavorite, savedRecipes, isSaved }) {
   return (
     <>
       <Navigation />
+      <section className="home-header ">
+        <div className="p-16 min-h-screen flex flex-col items-center px-24">
+          <h4 className="text-white font-serif text-xl font-bold">Tasty Hub</h4>
+          <p className="text-white text-lg font-semibold">
+            Explore New Recipes
+          </p>
+        </div>
+      </section>
       <main
-        className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
+        className={`flex min-h-screen flex-col items-center justify-between px-24 ${inter.className}`}
       >
         <RecipeList
           data={data}
