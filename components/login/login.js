@@ -1,6 +1,6 @@
 import { useSession, signIn, signOut } from "next-auth/react";
 import Image from "next/image";
-
+import Link from "next/link";
 export default function Login() {
   const { data: session, status } = useSession();
   if (status === "loading") {
@@ -34,19 +34,36 @@ export default function Login() {
           </li>
         </ul>
         <div className="w-full border-t-2 border-gray-200"></div>
+        <button className="border-2 p-1.5 px-6 rounded-lg">
+          <Link href="/create" passHref>
+            Add New Recipe
+          </Link>
+        </button>
+
+        <Link href="/profile/saved" passHref>
+          Saved Recipes
+        </Link>
       </>
     );
   }
   return (
     <>
-      Not signed in <br />
+      <br />
+      <p className="m-2">You are not signed in</p>
+      <img
+        className="w-3/4 max-w-3xl"
+        src="recipes.png"
+        width="100%"
+        alt="astronut cat"
+      />{" "}
       <button
         onClick={() => signIn()}
         type="button"
-        className="border-2 p-1.5 px-6 rounded-lg"
+        className="mb-6 border-2 p-1.5 px-6 rounded-lg border-customOrange bg-customOrange"
       >
         Sign in
       </button>
+      <br />
     </>
   );
 }

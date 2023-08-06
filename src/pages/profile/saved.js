@@ -1,6 +1,5 @@
 import RecipeListItem from "../../../components/recipeListItem/recipeListItem";
 import useSWR from "swr";
-import Link from "next/link";
 import Layout from "../../../components/layout/layout";
 
 export default function SavedPage({ savedRecipes, handleToggleFavorite }) {
@@ -11,9 +10,6 @@ export default function SavedPage({ savedRecipes, handleToggleFavorite }) {
   return (
     <Layout>
       <ul>
-        <Link href="/profile" passHref>
-          Back to Profile{" "}
-        </Link>
         {data.map((recipe) => {
           return (
             <li key={recipe._id}>

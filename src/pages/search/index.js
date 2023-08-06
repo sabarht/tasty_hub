@@ -1,6 +1,5 @@
 import SearchForm from "../../../components/searchForm/searchForm";
 import RecipeList from "../../../components/recipesList/recipeList";
-import Navigation from "../../../components/navigation/navigation";
 import { useState } from "react";
 import useSWR from "swr";
 import Layout from "../../../components/layout/layout";
@@ -34,7 +33,6 @@ export default function SearchPage({ savedRecipes }) {
   }
   return (
     <>
-      <Navigation />
       <Layout>
         <section className="search-header ">
           {" "}
@@ -81,8 +79,4 @@ export default function SearchPage({ savedRecipes }) {
       </span>
     </>
   );
-}
-
-{
-  /* <a href="https://www.freepik.com/free-vector/404-error-with-cute-animal-concept-illustration_7967795.htm#query=illustrations%20no%20result&position=31&from_view=search&track=ais">Image by storyset</a> on Freepik */
 }
