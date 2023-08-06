@@ -9,20 +9,31 @@ export default function Login() {
   if (session) {
     return (
       <>
-        Signed in as {session.user.name} <br />
-        <Image
-          src={session.user.image}
-          width={50}
-          height={50}
-          alt="Image of user"
-        />
-        <button
-          onClick={() => signOut()}
-          type="button"
-          className="border-2 p-1.5 px-6 rounded-lg"
-        >
-          Sign out
-        </button>
+        <ul className="mt-8 flex justify-between space-x-10">
+          <li className="space-y-2">
+            <p className="text-gray-700"> Hello {session.user.name}</p>
+            <p className="text-lg font-semibold">
+              What would you like to cook today?
+            </p>
+          </li>
+          <li className=" flex flex-col items-center">
+            <Image
+              className="rounded-full"
+              src={session.user.image}
+              width={50}
+              height={50}
+              alt="Image of user"
+            />
+            <button
+              onClick={() => signOut()}
+              type="button"
+              className="p-1.5 px-6 "
+            >
+              Sign out
+            </button>
+          </li>
+        </ul>
+        <div className="w-full border-t-2 border-gray-200"></div>
       </>
     );
   }
