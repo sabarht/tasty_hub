@@ -15,12 +15,8 @@ export const authOptions = {
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
     }),
-    // ...add more providers here
   ],
-  // session: {
-  //   // Set the maximum age (in seconds) of the session (e.g., 30 days)
-  //   maxAge: 30 * 24 * 60 * 60, // 30 days
-  // },
+
   adapter: MongoDBAdapter(clientPromise),
 
   callbacks: {

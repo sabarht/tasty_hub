@@ -14,6 +14,7 @@ module.exports = {
         customRed: "#FF0000",
         customOrange: "#F4BD93",
         customGreen: "#2A5846",
+        customGreenLight: "#94ABA3",
         customGrey: "#D9D9D9",
       },
     },

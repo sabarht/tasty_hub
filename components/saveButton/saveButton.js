@@ -1,5 +1,5 @@
-import { MdFavorite } from "react-icons/md";
-import { MdOutlineFavoriteBorder } from "react-icons/md";
+import { MdBookmark } from "react-icons/md";
+import { MdBookmarkBorder } from "react-icons/md";
 import { useEffect, useState } from "react";
 import useSWR, { mutate } from "swr";
 import { useSession } from "next-auth/react";
@@ -41,18 +41,6 @@ export default function SaveButton({ recipeId }) {
         if (res.ok) {
           setIsSaved(false);
         }
-
-        // if (isSaved) {
-        //   const updatedSavedRecipes = savedRecipes.filter(
-        //     (id) => id !== recipeId
-        //   );
-        //   await fetch(`/api/users/${user?.user._id}`, {
-        //     method: "DELETE",
-        //     headers: {
-        //       "Content-Type": "application/json",
-        //     },
-        //     body: JSON.stringify({ savedRecipes: updatedSavedRecipes }),
-        //   });
       } else {
         const updatedSavedRecipes = [...savedRecipes, recipeId];
         setIsSaved(!isSaved);
@@ -67,27 +55,6 @@ export default function SaveButton({ recipeId }) {
         setIsSavedArray([...updatedSavedRecipes]);
         console.log("NOt Saved setIsSavedArray", isSavedArray);
       }
-      // if (isSaved) {
-      //   const updatedSavedRecipes = savedRecipes.filter(
-      //     (id) => id !== recipeId
-      //   );
-      //   await fetch(`/api/users/${user?.user._id}`, {
-      //     method: "PATCH",
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //     },
-      //     body: JSON.stringify({ savedRecipes: updatedSavedRecipes }),
-      //   });
-      // } else {
-      //   const updatedSavedRecipes = [...savedRecipes, recipeId];
-      //   await fetch(`/api/users/${user?.user._id}`, {
-      //     method: "PATCH",
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //     },
-      //     body: JSON.stringify({ savedRecipes: updatedSavedRecipes }),
-      //   });
-      // }
 
       mutate();
     } catch (error) {
@@ -98,14 +65,15 @@ export default function SaveButton({ recipeId }) {
 
   let buttonText = "";
   if (isSavedArray?.includes(recipeId)) {
-    buttonText = <MdFavorite />;
+    buttonText = <MdBookmark />;
   } else {
-    buttonText = <MdOutlineFavoriteBorder />;
+    buttonText = <MdBookmarkBorder />;
   }
   // const buttonText = isSaved ? <MdFavorite /> : <MdOutlineFavoriteBorder />;
 
   return (
     <button
+      className="text-2xl text-red-800 p-4 absolute bottom-0 right-0"
       onClick={() => {
         setIsSaved((prevIsSaved) => !prevIsSaved);
         handleToggleSave();

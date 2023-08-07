@@ -60,6 +60,16 @@ export default function SearchPage({ savedRecipes }) {
               Italian
             </button>
           </li>
+          <li>
+            <button
+              className="border-2 p-1.5 px-6 rounded-lg"
+              onClick={() => {
+                handleFilter("Indian");
+              }}
+            >
+              Indian
+            </button>
+          </li>
         </ul>
         {searchResults == "No result" ? (
           <div className="mt-6 flex flex-col">

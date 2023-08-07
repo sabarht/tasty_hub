@@ -7,20 +7,18 @@ export default function CommentForm({ onSubmit }) {
         <input
           id="comment"
           name="comment"
-          className="w-full resize-none border border-customOrange rounded-md p-2 focus:outline-none focus:ring focus:border-blue-300"
+          className="w-full resize-none border border-customGreenLight rounded-md p-2 focus:outline-none focus:ring focus:border-blue-300"
           placeholder="Start writing"
           required
         />
 
-
         <button
-          className="p-2 px-2.5 ml-1.5 bg-customOrange rounded-lg"
+          className="p-2 px-2.5 ml-1.5 bg-customGreenLight rounded-lg"
           name="Send Comment"
         >
           <VscSend />
         </button>
       </div>
-
     </form>
   );
 }

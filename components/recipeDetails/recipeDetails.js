@@ -1,22 +1,50 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
-export default function RecipeDetails({ data }) {
+import Link from "next/link";
+import { MdEdit, MdDelete } from "react-icons/md";
+export default function RecipeDetails({
+  data,
+  userId,
+  sessionId,
+  handleDelete,
+}) {
   const router = useRouter();
   const { title, image, creator, direction, ingredients, description } = data;
 
   return (
     <>
-      <div className="text-gray-800">
-        <ul className="max-w-sm">
-          <li>
-            <h1 className="text-3xl font-semibold">{title}</h1>
-          </li>
-          <li>
-            <h4 className="text-xl font-medium ">recipe by: {creator}</h4>
-          </li>
-        </ul>
-        <ul className="mx-auto max-w-lg md:max-w-xl ">
+      <div className="text-gray-800 my-6">
+        <div className="flex justify-between">
+          <ul className="max-w-sm">
+            <li>
+              <h1 className="text-3xl font-semibold">{title}</h1>
+            </li>
+            <li>
+              <h4 className="text-xl font-medium ">recipe by: {creator}</h4>
+            </li>
+          </ul>
+          {userId == sessionId ? (
+            <ul className=" top-20 text-2xl space-y-2">
+              <li>
+                <Link href={`/edit/${data._id}`} passHref legacyBehavior>
+                  <button className=" bg-gray-100 p-1.5 px-2 rounded-lg">
+                    <MdEdit />
+                  </button>
+                </Link>
+              </li>
+              <li>
+                <button
+                  className="bg-gray-100 p-1.5 px-2 rounded-lg"
+                  onClick={handleDelete}
+                >
+                  <MdDelete />
+                </button>
+              </li>
+            </ul>
+          ) : null}
+        </div>
 
+        <ul className="mx-auto max-w-lg md:max-w-xl ">
           <li className="py-4 ">
             <Image
               className="rounded"
