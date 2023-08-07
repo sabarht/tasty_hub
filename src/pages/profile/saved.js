@@ -27,13 +27,10 @@ export default function SavedPage() {
   if (!userData) {
     return <h1>You have no saved Recipes Yet...</h1>;
   }
-  const savedRecipes = userData[1].savedRecipes;
+  const savedRecipes = userData[0].savedRecipes;
   return (
     <Layout>
-      <ul>
-        <Link href="/profile" passHref>
-          Back to Profile{" "}
-        </Link>
+      <ul>    
         {recipesData.map((recipe) => {
           return (
             <li key={recipe._id}>

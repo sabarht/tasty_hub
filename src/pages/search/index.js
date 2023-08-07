@@ -1,9 +1,10 @@
 import SearchForm from "../../../components/searchForm/searchForm";
 import RecipeList from "../../../components/recipesList/recipeList";
-import Navigation from "../../../components/navigation/navigation";
 import { useState } from "react";
 import useSWR from "swr";
 import Layout from "../../../components/layout/layout";
+import Footer from "../../../components/footer/footer";
+import Image from "next/image";
 // import Button from "../../../components/button/button";
 export default function SearchPage({ savedRecipes }) {
   const { data } = useSWR("/api/recipes");
@@ -18,17 +19,26 @@ export default function SearchPage({ savedRecipes }) {
         recipe.title.toLowerCase().includes(searchValue.toLowerCase())
       );
       console.log("filter", filteredResults);
-      setSearchResults(filteredResults);
+      console.log("   filteredResults.length", filteredResults.length);
+      filteredResults.length > 0
+        ? setSearchResults(filteredResults)
+        : setSearchResults("No result");
+      // setSearchResults(filteredResults);
     }
   }
   function handleFilter(category) {
     const results = data.filter((recipe) => recipe.category == category);
+
     setSearchResults(results);
   }
   return (
     <>
-      <Navigation />
       <Layout>
+        <section className="search-header ">
+          {" "}
+          <p> Search your cravings</p>
+        </section>
+        <SearchForm onChange={handleSearchResults} />
         <ul className="flex space-x-4 m-2">
           <li>
             <button
@@ -51,10 +61,22 @@ export default function SearchPage({ savedRecipes }) {
             </button>
           </li>
         </ul>
-
-        <SearchForm onChange={handleSearchResults} />
-        <RecipeList data={searchResults} savedRecipes={savedRecipes} />
+        {searchResults == "No result" ? (
+          <div className="mt-6 flex flex-col">
+            <h2 className="-mb-4 text-center text-xl font-semibold">
+              No search results found!
+            </h2>
+            <img src="cat.png" width="100%" alt="astronut cat" />
+          </div>
+        ) : (
+          <RecipeList data={searchResults} savedRecipes={savedRecipes} />
+        )}
+        {/* <RecipeList data={searchResults} savedRecipes={savedRecipes} /> */}
       </Layout>
+      <div className="m-20 text-transparent">.</div>
+      <span className="fixed bottom-0 w-full">
+        <Footer />
+      </span>
     </>
   );
 }

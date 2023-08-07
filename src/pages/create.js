@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import useSWR from "swr";
 import Layout from "../../components/layout/layout";
 import React, { useState } from "react";
+import Navigation from "../../components/navigation/navigation";
 
 export default function CreatePage() {
   const router = useRouter();
@@ -76,8 +77,7 @@ export default function CreatePage() {
   }
   return (
     <>
-      <Link href="/profile">Back </Link>
-      <Layout className="w-3/4">
+      <Layout>
         <RecipeForm
           onSubmit={handleSubmit}
           onClick={addIngredient}

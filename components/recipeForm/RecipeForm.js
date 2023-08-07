@@ -1,3 +1,6 @@
+import { IoIosRemoveCircleOutline } from "react-icons/io";
+import { IoIosAddCircleOutline } from "react-icons/io";
+import { BsArrowRightCircle } from "react-icons/bs";
 export default function RecipeForm({
   onSubmit,
   formName,
@@ -69,20 +72,27 @@ export default function RecipeForm({
           />{" "}
           <button
             type="button"
-            className="border-2 p-1.5 px-4 rounded-lg p-2 rounded-md"
+            className="border-2 p-1.5 px-2.5 rounded-lg p-2 rounded-md"
             onClick={onClick}
           >
-            +
+            <IoIosAddCircleOutline className="text-xl" />
           </button>
         </div>
-        <ul>
+        <ul className="flex space-x-2">
           {appendedInput.map((ing, index) => (
-            <li key={index}>
+            <li
+              key={index}
+              className="rounded-lg px-3 py-1.5 border flex space-x-2"
+            >
               <div>{ing}</div>
-              <button onClick={() => onClickDelete(index)}>-</button>
+              <button onClick={() => onClickDelete(index)}>
+                {" "}
+                <IoIosRemoveCircleOutline />
+              </button>
             </li>
           ))}
         </ul>
+
         <label htmlFor="direction" className="block">
           Add the directions:{" "}
         </label>
@@ -97,21 +107,36 @@ export default function RecipeForm({
           />
           <button
             type="button"
-            className="border-2 p-1.5 px-4 rounded-lg p-2 rounded-md"
+            className="border-2 p-1.5 px-2.5 rounded-lg p-2 rounded-md"
             onClick={onAddDirection}
           >
-            +
+            <IoIosAddCircleOutline className="text-xl" />
           </button>
         </div>
-        <ul>
-          {appendedDirection.map((ing, index) => (
-            <li key={index} className="w-full">
-              <div>{ing}</div>
-              <button onClick={() => onDirectionDelete(index)}>-</button>
+
+        <ul className="flex space-x-2">
+          {appendedDirection.map((step, index) => (
+            <li
+              key={index}
+              className="rounded-lg px-3 py-1.5 border flex space-x-2"
+            >
+              <div>{step}</div>
+              <button onClick={() => onDirectionDelete(index)}>
+                {" "}
+                <IoIosRemoveCircleOutline />
+              </button>
+
             </li>
           ))}
         </ul>
-        <button type="submit">Submit</button>
+        <button
+          className="flex items-center  hover:bg-green-600 hover:font-medium  bg-green-800 text-white p-2 px-3  rounded-xl"
+          type="submit"
+          name="Submit a recipe"
+        >
+          post
+          <BsArrowRightCircle className="ml-1.5" />
+        </button>
       </form>
     </>
   );
