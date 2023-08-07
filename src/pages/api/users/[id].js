@@ -19,11 +19,13 @@ export default async function handler(request, response) {
     }
   }
   if (request.method === "PATCH") {
-    console.log("req", request.body);
+    console.log("req PATCH", request.body);
     try {
-      const savedRecipeIdsToAdd = request.body.savedRecipes;
+      const savedRecipeIdToAdd = request.body.savedRecipes;
+      console.log("savedRecipeIdsToAdd", savedRecipeIdToAdd);
+
       await User.findByIdAndUpdate(id, {
-        $addToSet: { savedRecipes: { $each: savedRecipeIdsToAdd } },
+        $addToSet: { savedRecipes: { $each: savedRecipeIdToAdd } },
       });
       return response.status(201).json({ status: "Saved recipes updated" });
     } catch (error) {
@@ -33,12 +35,15 @@ export default async function handler(request, response) {
         .json({ error: "Error updating saved recipes" });
     }
   }
-  if (method === "DELETE") {
+  if (request.method === "DELETE") {
+    console.log(request.body);
     try {
-      const saved = await User.findOneAndDelete({
-        savedRecipes: request.query.user,
+      const saved = await User.findByIdAndUpdate(id, {
+        $pullAll: {
+          savedRecipes: [request.body.recipeId],
+        },
       });
-      console.log("savedrecpes4", savedRecipes);
+      console.log("savedrecpes4", saved);
 
       if (!saved) {
         return response.status(404).json({ error: "saved not found" });
