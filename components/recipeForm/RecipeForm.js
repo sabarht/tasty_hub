@@ -33,6 +33,7 @@ export default function RecipeForm({
             className="border-2 w-full p-2 rounded-md"
           />
         </div>
+
         <div>
           <label htmlFor="image" className="block">
             Add recipes image:{" "}
@@ -125,10 +126,20 @@ export default function RecipeForm({
                 {" "}
                 <IoIosRemoveCircleOutline />
               </button>
-
             </li>
           ))}
         </ul>
+        <label for="category">Select the category: </label>
+        <select
+          id="category"
+          name="category"
+          className="p-1.5 border-2 rounded-lg"
+        >
+          <option value="" disabled selected></option>
+          <option value="Iranian">Iranian</option>
+          <option value="Italian">Italian</option>
+          <option value="Indian">Indian</option>
+        </select>
         <button
           className="flex items-center  hover:bg-green-600 hover:font-medium  bg-green-800 text-white p-2 px-3  rounded-xl"
           type="submit"

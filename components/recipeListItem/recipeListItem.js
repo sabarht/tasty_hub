@@ -1,5 +1,4 @@
 import Image from "next/image";
-import SaveButton from "../saveButton/saveButton";
 import { useRouter } from "next/router";
 
 export default function RecipeListItem({ recipe, children }) {

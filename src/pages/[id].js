@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
 import Layout from "../../components/layout/layout";
-
 import CommentForm from "../../components/commentForm/commentForm";
 import Footer from "../../components/footer/footer";
 
@@ -27,10 +26,15 @@ export default function RecipeDetailsPage() {
   const { data: allComments, mutate } = useSWR(`/api/comments?id=${id}`);
   const [comments, setComments] = useState([]);
   async function deleteRecipe() {
-    await fetch(`/api/recipes/${id}`, {
-      method: "DELETE",
-    });
-    router.push("/");
+    const confirmation = window.confirm(
+      "Are you sure you want to delete this recipe?"
+    );
+    if (confirmation) {
+      await fetch(`/api/recipes/${id}`, {
+        method: "DELETE",
+      });
+      router.push("/");
+    }
   }
   async function handleComment(e) {
     e.preventDefault();
