@@ -1,7 +1,8 @@
 import "@/styles/globals.css";
 import { SWRConfig } from "swr";
 import { SessionProvider } from "next-auth/react";
-// import { useState } from "react";
+import { useState } from "react";
+import Navigation from "../../components/navigation/navigation";
 
 // let isSaved = false;
 
@@ -33,6 +34,7 @@ export default function App({
           },
         }}
       >
+        <Navigation />
         <Component
           {...pageProps}
           // handleToggleFavorite={handleToggleFavorite}

@@ -13,7 +13,8 @@ export default function RecipeListItem({
   return (
     <article
       key={recipe._id}
-      className="flex-col  m-2  rounded-md border-gray-400 bg-customGrey relative"
+      className="flex-col  m-3  rounded-md bg-gray-300
+      relative"
     >
       <span onClick={() => router.push(`/${recipe._id}`)} className="flex-col">
         <div className="w-80 h-80">

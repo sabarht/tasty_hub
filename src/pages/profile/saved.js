@@ -31,10 +31,9 @@ export default function SavedPage() {
   return (
     <Layout>
       <ul>
-        <Link href="/profile" passHref>
-          Back to Profile{" "}
-        </Link>
+
         {recipesData.map((recipe) => {
+
           return (
             <li key={recipe._id}>
               {savedRecipes.includes(recipe._id) && (

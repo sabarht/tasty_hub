@@ -1,25 +1,32 @@
-import Navigation from "../../../components/navigation/navigation";
 import Login from "../../../components/login/login";
-import Link from "next/link";
 import Layout from "../../../components/layout/layout";
-import Button from "../../../components/button/button";
+import Footer from "../../../components/footer/footer";
 
 export default function ProfilePage() {
   return (
     <>
-      <Navigation />
       <Layout>
         <Login />
-        <Button>
-          <Link href="/create" passHref>
-            Add New Recipe
-          </Link>
-        </Button>
-
-        <Link href="/profile/saved" passHref>
-          Saved Recipes
-        </Link>
       </Layout>
+
+      <Footer>
+        <ul className="text-xs">
+          Illustrations by:
+          <li>
+            {" "}
+            <a href="https://www.freepik.com/free-vector/recipe-book-concept-illustration_19245712.htm#query=recipe%20illustration&position=0&from_view=search&track=ais">
+              storyset
+            </a>{" "}
+            on Freepik
+          </li>
+          <li>
+            <a href="https://www.freepik.com/free-vector/cat-astronaut-concept-illustration_22896103.htm#query=illustration%20lcat&position=38&from_view=search&track=ais">
+              storyset
+            </a>{" "}
+            on Freepik
+          </li>
+        </ul>
+      </Footer>
     </>
   );
 }

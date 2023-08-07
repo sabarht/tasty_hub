@@ -8,13 +8,7 @@ import React, { useState } from "react";
 export default function EditPage() {
   const router = useRouter();
   const { id } = router.query;
-
   const { data: recipe, mutate } = useSWR(id ? `/api/recipes/${id}` : null);
-  console.log("meowmeow2", recipe);
-  // if (recipes) {
-  //   console.log("meowwww", recipes);
-  // }
-
   const [appendedInput, setAppendedInput] = useState([]);
   const [ingredient, setIngredient] = useState("");
   const [appendedDirection, setAppendedDirection] = useState([]);
@@ -65,6 +59,7 @@ export default function EditPage() {
       ingredients: appendedInput,
       direction: appendedDirection,
     };
+
     const response = await fetch(`/api/recipes/${id}`, {
       method: "PATCH",
       body: JSON.stringify(newData),
