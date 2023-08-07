@@ -1,9 +1,10 @@
-// import { MdFavorite } from "react-icons/md";
-// import { MdOutlineFavoriteBorder } from "react-icons/md";
+import { MdFavorite } from "react-icons/md";
+import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { useState } from "react";
 import useSWR, { mutate } from "swr";
 import { useSession } from "next-auth/react";
 export default function SaveButton({ recipeId }) {
+  console.log("recipe id", recipeId);
   const { data: user } = useSession();
 
   console.log("userID", user?.user._id);
@@ -80,7 +81,14 @@ export default function SaveButton({ recipeId }) {
     }
   }
 
-  const buttonText = isSaved ? "Unsave" : "Save";
+  let buttonText = "";
+  if (savedRecipes?.includes(recipeId)) {
+    buttonText = <MdFavorite />;
+  } else {
+    buttonText = <MdOutlineFavoriteBorder />;
+  }
+
+  // const buttonText = isSaved ? <MdFavorite /> : <MdOutlineFavoriteBorder />;
 
   return (
     <button
