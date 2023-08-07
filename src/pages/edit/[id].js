@@ -72,7 +72,7 @@ export default function EditPage() {
     if (response.ok) {
       mutate();
       event.target.reset();
-      router.push(`/`);
+      router.push(`/${id}`);
     } else {
       console.error(`Error: ${response.status}`);
     }

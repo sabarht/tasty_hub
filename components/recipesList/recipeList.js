@@ -1,4 +1,5 @@
 import RecipeListItem from "../recipeListItem/recipeListItem";
+import SaveButton from "../saveButton/saveButton";
 
 export default function RecipeList({
   data,
@@ -9,13 +10,11 @@ export default function RecipeList({
   return (
     <section className="flex justify-center flex-wrap md:flex-row">
       {data.map((recipe) => (
-        <RecipeListItem
-          recipe={recipe}
-          key={recipe._id}
-          savedRecipes={savedRecipes}
-          handleToggleFavorite={handleToggleFavorite}
-          isSaved={isSaved}
-        />
+        <>
+          <RecipeListItem recipe={recipe} key={recipe._id}>
+            <SaveButton recipeId={recipe._id} />
+          </RecipeListItem>
+        </>
       ))}
     </section>
   );

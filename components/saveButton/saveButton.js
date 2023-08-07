@@ -1,5 +1,5 @@
-import { MdFavorite } from "react-icons/md";
-import { MdOutlineFavoriteBorder } from "react-icons/md";
+import { MdBookmark } from "react-icons/md";
+import { MdBookmarkBorder } from "react-icons/md";
 import { useEffect, useState } from "react";
 import useSWR, { mutate } from "swr";
 import { useSession } from "next-auth/react";
@@ -65,14 +65,15 @@ export default function SaveButton({ recipeId }) {
 
   let buttonText = "";
   if (isSavedArray?.includes(recipeId)) {
-    buttonText = <MdFavorite />;
+    buttonText = <MdBookmark />;
   } else {
-    buttonText = <MdOutlineFavoriteBorder />;
+    buttonText = <MdBookmarkBorder />;
   }
   // const buttonText = isSaved ? <MdFavorite /> : <MdOutlineFavoriteBorder />;
 
   return (
     <button
+      className="text-2xl text-red-800 p-4 absolute bottom-0 right-0"
       onClick={() => {
         setIsSaved((prevIsSaved) => !prevIsSaved);
         handleToggleSave();

@@ -1,10 +1,8 @@
 import RecipeForm from "../../components/recipeForm/RecipeForm";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import Layout from "../../components/layout/layout";
 import React, { useState } from "react";
-import Navigation from "../../components/navigation/navigation";
 
 export default function CreatePage() {
   const router = useRouter();

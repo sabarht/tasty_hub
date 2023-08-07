@@ -43,6 +43,10 @@ export default function Login() {
         <Link href="/profile/saved" passHref>
           Saved Recipes
         </Link>
+
+        <Link href="/profile/usersrecipes" passHref>
+          My Recipes
+        </Link>
       </>
     );
   }
