@@ -1,36 +1,40 @@
 import RecipeListItem from "../../../components/recipeListItem/recipeListItem";
 import useSWR from "swr";
-import Link from "next/link";
 import Layout from "../../../components/layout/layout";
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
+import Link from "next/link";
 export default function SavedPage() {
-  const router = useRouter();
-  const { id } = router.query;
-  console.log(id, "id");
-  const { data: user } = useSession();
+  const [renderContent, setRenderContent] = useState(false);
 
-  const { data: recipes } = useSWR("/api/recipes");
+  const renderWithDelay = () => {
+    setTimeout(() => {
+      setRenderContent(true);
+    }, 500);
+  };
 
-  // const { data: savedRecipes } = useSWR(`/api/users/savedRecipes`);
-  // const { data: usersid } = useSWR(`/api/users`);
-  // console.log("savedpage", savedRecipes);
-  if (!recipes) {
+  const { data: userData } = useSWR("/api/users");
+  const { data: recipesData } = useSWR("/api/recipes");
+  console.log("suserData", userData);
+  console.log("srecipesData", recipesData);
+  useEffect(() => {
+    if (!userData) {
+      renderWithDelay();
+    }
+  }, [userData]);
+  if (!renderContent) {
     return <h1>Loading...</h1>;
   }
+  if (!userData) {
+    return <h1>You have no saved Recipes Yet...</h1>;
+  }
+  const savedRecipes = userData[1].savedRecipes;
   return (
     <Layout>
       <ul>
         <Link href="/profile" passHref>
           Back to Profile{" "}
         </Link>
-        wellllll
-        {/* {savedRecipes.map((recipe) => (
-          <li key={recipe._id}>
-            <RecipeListItem recipe={recipe} />
-          </li>
-        ))} */}
-        {/* {recipes.map((recipe) => {
+        {recipesData.map((recipe) => {
           return (
             <li key={recipe._id}>
               {savedRecipes.includes(recipe._id) && (
@@ -42,7 +46,7 @@ export default function SavedPage() {
               )}
             </li>
           );
-        })} */}
+        })}
       </ul>
     </Layout>
   );

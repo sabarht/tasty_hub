@@ -18,20 +18,4 @@ export default async function handler(request, response) {
       return response.status(500).json({ error: "Error fetching user data" });
     }
   }
-  // if (method === "DELETE") {
-  //   try {
-  //     const saved = await User.findOneAndDelete({
-  //       savedRecipes: request.query.user,
-  //     });
-  //     console.log("savedrecpes4", savedRecipes);
-
-  //     if (!saved) {
-  //       return response.status(404).json({ error: "saved not found" });
-  //     }
-  //     return response.status(200).json({ status: "Success" });
-  //   } catch (error) {
-  //     console.error("Error unsaved", error);
-  //     return response.status(500).json({ error: "Internal Server Error" });
-  //   }
-  // }
 }

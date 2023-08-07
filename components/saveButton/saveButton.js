@@ -45,6 +45,8 @@ export default function SaveButton({ recipeId }) {
         //   });
       } else {
         const updatedSavedRecipes = [...savedRecipes, recipeId];
+        setIsSaved(!isSaved);
+
         await fetch(`/api/users/${user?.user._id}`, {
           method: "PATCH",
           headers: {
@@ -81,14 +83,14 @@ export default function SaveButton({ recipeId }) {
     }
   }
 
-  let buttonText = "";
-  if (savedRecipes?.includes(recipeId)) {
-    buttonText = <MdFavorite />;
-  } else {
-    buttonText = <MdOutlineFavoriteBorder />;
-  }
+  // let buttonText = "";
+  // if (savedRecipes?.includes(recipeId)) {
+  //   buttonText = <MdFavorite />;
+  // } else {
+  //   buttonText = <MdOutlineFavoriteBorder />;
+  // }
 
-  // const buttonText = isSaved ? <MdFavorite /> : <MdOutlineFavoriteBorder />;
+  const buttonText = isSaved ? <MdFavorite /> : <MdOutlineFavoriteBorder />;
 
   return (
     <button
