@@ -7,13 +7,11 @@ export default function UsersRecipes() {
   console.log("session", session);
   const sessionId = session?.user._id;
   const { data: recipes } = useSWR("/api/recipes");
-  console.log("sessionId", sessionId);
-  console.log("recipesrecipes", recipes[13]?.user);
 
   return (
     <>
       <Layout>
-        <ul>
+        {/* <ul>
           {recipes?.map((recipe) => {
             recipe.user === sessionId ? (
               <li key={recipe._id}>
@@ -21,7 +19,7 @@ export default function UsersRecipes() {
               </li>
             ) : null;
           })}
-        </ul>
+        </ul> */}
       </Layout>
     </>
   );
