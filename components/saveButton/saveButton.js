@@ -41,18 +41,6 @@ export default function SaveButton({ recipeId }) {
         if (res.ok) {
           setIsSaved(false);
         }
-
-        // if (isSaved) {
-        //   const updatedSavedRecipes = savedRecipes.filter(
-        //     (id) => id !== recipeId
-        //   );
-        //   await fetch(`/api/users/${user?.user._id}`, {
-        //     method: "DELETE",
-        //     headers: {
-        //       "Content-Type": "application/json",
-        //     },
-        //     body: JSON.stringify({ savedRecipes: updatedSavedRecipes }),
-        //   });
       } else {
         const updatedSavedRecipes = [...savedRecipes, recipeId];
         setIsSaved(!isSaved);
@@ -67,27 +55,6 @@ export default function SaveButton({ recipeId }) {
         setIsSavedArray([...updatedSavedRecipes]);
         console.log("NOt Saved setIsSavedArray", isSavedArray);
       }
-      // if (isSaved) {
-      //   const updatedSavedRecipes = savedRecipes.filter(
-      //     (id) => id !== recipeId
-      //   );
-      //   await fetch(`/api/users/${user?.user._id}`, {
-      //     method: "PATCH",
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //     },
-      //     body: JSON.stringify({ savedRecipes: updatedSavedRecipes }),
-      //   });
-      // } else {
-      //   const updatedSavedRecipes = [...savedRecipes, recipeId];
-      //   await fetch(`/api/users/${user?.user._id}`, {
-      //     method: "PATCH",
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //     },
-      //     body: JSON.stringify({ savedRecipes: updatedSavedRecipes }),
-      //   });
-      // }
 
       mutate();
     } catch (error) {
