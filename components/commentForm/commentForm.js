@@ -12,6 +12,7 @@ export default function CommentForm({ onSubmit }) {
           required
         />
 
+
         <button
           className="p-2 px-2.5 ml-1.5 bg-customOrange rounded-lg"
           name="Send Comment"
@@ -19,6 +20,7 @@ export default function CommentForm({ onSubmit }) {
           <VscSend />
         </button>
       </div>
+
     </form>
   );
 }

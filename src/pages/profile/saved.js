@@ -1,23 +1,44 @@
 import RecipeListItem from "../../../components/recipeListItem/recipeListItem";
 import useSWR from "swr";
 import Layout from "../../../components/layout/layout";
+import { useState, useEffect } from "react";
+import Link from "next/link";
+export default function SavedPage() {
+  const [renderContent, setRenderContent] = useState(false);
 
-export default function SavedPage({ savedRecipes, handleToggleFavorite }) {
-  const { data } = useSWR("/api/recipes");
-  if (!data) {
+  const renderWithDelay = () => {
+    setTimeout(() => {
+      setRenderContent(true);
+    }, 500);
+  };
+
+  const { data: userData } = useSWR("/api/users");
+  const { data: recipesData } = useSWR("/api/recipes");
+  console.log("suserData", userData);
+  console.log("srecipesData", recipesData);
+  useEffect(() => {
+    if (!userData) {
+      renderWithDelay();
+    }
+  }, [userData]);
+  if (!renderContent) {
     return <h1>Loading...</h1>;
   }
+  if (!userData) {
+    return <h1>You have no saved Recipes Yet...</h1>;
+  }
+  const savedRecipes = userData[0].savedRecipes;
   return (
     <Layout>
-      <ul>
-        {data.map((recipe) => {
+      <ul>    
+        {recipesData.map((recipe) => {
           return (
             <li key={recipe._id}>
               {savedRecipes.includes(recipe._id) && (
                 <RecipeListItem
                   recipe={recipe}
-                  handleToggleFavorite={handleToggleFavorite}
-                  savedRecipes={savedRecipes}
+                  // handleToggleFavorite={handleToggleFavorite}
+                  // savedRecipes={savedRecipes}
                 />
               )}
             </li>

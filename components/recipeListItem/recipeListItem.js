@@ -37,6 +37,7 @@ export default function RecipeListItem({
         isSaved={isSaved}
         recipe={recipe}
         savedRecipes={savedRecipes}
+        recipeId={recipe._id}
       />
     </article>
   );

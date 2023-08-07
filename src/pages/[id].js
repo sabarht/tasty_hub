@@ -6,12 +6,15 @@ import { useSession } from "next-auth/react";
 import Layout from "../../components/layout/layout";
 import Link from "next/link";
 import CommentForm from "../../components/commentForm/commentForm";
+
 import Footer from "../../components/footer/footer";
+
 export default function RecipeDetailsPage() {
   const router = useRouter();
   const { id } = router.query;
   const { data } = useSWR(id ? `/api/recipes/${id}` : null);
   const { data: session, status } = useSession();
+
   console.log("data", data);
   const sessionId = session?.user._id;
   console.log("sessionId", sessionId);
@@ -21,6 +24,7 @@ export default function RecipeDetailsPage() {
   const userId = data?.user?._id;
 
   console.log("userId", userId);
+
 
   const { data: allComments, mutate } = useSWR(`/api/comments?id=${id}`);
   const [comments, setComments] = useState([]);

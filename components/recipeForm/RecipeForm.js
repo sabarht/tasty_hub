@@ -113,6 +113,7 @@ export default function RecipeForm({
             <IoIosAddCircleOutline className="text-xl" />
           </button>
         </div>
+
         <ul className="flex space-x-2">
           {appendedDirection.map((step, index) => (
             <li
@@ -124,6 +125,7 @@ export default function RecipeForm({
                 {" "}
                 <IoIosRemoveCircleOutline />
               </button>
+
             </li>
           ))}
         </ul>

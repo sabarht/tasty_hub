@@ -60,7 +60,6 @@ export default function EditPage() {
       ingredients: appendedInput,
       direction: appendedDirection,
     };
-    console.log("data", newData);
 
     const response = await fetch(`/api/recipes/${id}`, {
       method: "PATCH",

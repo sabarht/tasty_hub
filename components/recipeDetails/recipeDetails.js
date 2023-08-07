@@ -1,10 +1,9 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
-
 export default function RecipeDetails({ data }) {
   const router = useRouter();
-
   const { title, image, creator, direction, ingredients, description } = data;
+
   return (
     <>
       <div className="text-gray-800">
@@ -17,7 +16,7 @@ export default function RecipeDetails({ data }) {
           </li>
         </ul>
         <ul className="mx-auto max-w-lg md:max-w-xl ">
-          {/* <ul className="max-w-sm"> */}
+
           <li className="py-4 ">
             <Image
               className="rounded"
