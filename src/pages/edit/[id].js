@@ -93,6 +93,8 @@ export default function EditPage() {
           appendedInput={appendedInput}
           appendedDirection={appendedDirection}
           defaultValue={recipe}
+          direction={direction}
+          ingredient={ingredient}
         />
       </Layout>
     </>

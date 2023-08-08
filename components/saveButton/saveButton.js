@@ -76,7 +76,7 @@ export default function SaveButton({ recipeId }) {
 
   return (
     <button
-      className="text-2xl text-red-800 p-4 absolute bottom-0 right-0"
+      className="save-butto text-2xl text-red-800 p-4 absolute bottom-0 right-0"
       onClick={() => {
         setIsSaved((prevIsSaved) => !prevIsSaved);
         handleToggleSave();
