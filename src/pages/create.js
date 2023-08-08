@@ -11,16 +11,17 @@ export default function CreatePage() {
   const [ingredient, setIngredient] = useState("");
   const [appendedDirection, setAppendedDirection] = useState([]);
   const [direction, setDirection] = useState("");
+  // const [ingredientValue, setIngredientValue] = useState("");
 
   function handleInputChange(event) {
     setIngredient(event.target.value);
+    // setIngredientValue(event.target.value);
   }
   function addIngredient() {
     if (ingredient.trim() !== "") {
       setAppendedInput([...appendedInput, ingredient]);
       setIngredient("");
-
-      // e.target.form.reset(); // Reset the form
+      // e.target.ingredients.reset(); // Reset the form
     }
   }
 
