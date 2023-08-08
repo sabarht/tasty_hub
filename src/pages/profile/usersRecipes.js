@@ -1,7 +1,6 @@
 import Layout from "../../../components/layout/layout";
 import useSWR from "swr";
 import { useSession } from "next-auth/react";
-import Image from "next/image";
 import RecipeListItem from "../../../components/recipeListItem/recipeListItem";
 export default function UsersRecipes() {
   const { data: session } = useSession();
@@ -19,9 +18,7 @@ export default function UsersRecipes() {
               <li key={recipe._id}>
                 <RecipeListItem recipe={recipe} />
               </li>
-            ) : (
-              <p>meow</p>
-            );
+            ) : null;
           })}
         </ul>
       </Layout>

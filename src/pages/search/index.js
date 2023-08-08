@@ -43,7 +43,7 @@ export default function SearchPage({ savedRecipes }) {
           {categries.map((category) => (
             <li key={category}>
               <button
-                className=" border-2 p-1.5 px-6 rounded-lg"
+                className=" border-2 p-1.5 px-6 rounded-lg border-customGreenLight"
                 onClick={() => {
                   handleFilter({ category });
                 }}
@@ -103,15 +103,3 @@ export default function SearchPage({ savedRecipes }) {
     </>
   );
 }
-// {categries.map((category) => (
-//   <li key={category}>
-//     <button
-//       className=" border-2 p-1.5 px-6 rounded-lg"
-//       onClick={() => {
-//         handleFilter({ category });
-//       }}
-//     >
-//       {category}
-//     </button>
-//   </li>
-// ))}

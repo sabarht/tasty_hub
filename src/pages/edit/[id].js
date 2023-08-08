@@ -79,7 +79,12 @@ export default function EditPage() {
   }
   return (
     <>
-      <Link href="/profile">Back </Link>
+      <Link
+        className=" border-2 p-1.5 rounded-lg border-customGreenLight"
+        href="/profile"
+      >
+        Back{" "}
+      </Link>
       <Layout className="w-3/4">
         <RecipeForm
           onSubmit={handleSubmit}

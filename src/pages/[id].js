@@ -78,6 +78,7 @@ export default function RecipeDetailsPage() {
           sessionId={sessionId}
           handleDelete={deleteRecipe}
         />
+        <h4 className="text-xl font-semibold">Comment section</h4>
         <CommentForm onSubmit={handleComment} />
         <ul className="mb-6 w-full px-4 text-gray-700 max-w-lg md:max-w-xl flex flex-col items-start space-y-2">
           {allComments &&

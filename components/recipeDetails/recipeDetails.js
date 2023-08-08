@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
+import SaveButton from "../saveButton/saveButton";
 import Link from "next/link";
 import { MdEdit, MdDelete } from "react-icons/md";
 export default function RecipeDetails({
@@ -9,7 +10,8 @@ export default function RecipeDetails({
   handleDelete,
 }) {
   const router = useRouter();
-  const { title, image, creator, direction, ingredients, description } = data;
+  const { title, image, creator, direction, ingredients, description, _id } =
+    data;
   console.log("userId", userId);
   return (
     <>
@@ -23,6 +25,7 @@ export default function RecipeDetails({
               <h4 className="text-xl font-medium ">recipe by: {creator}</h4>
             </li>
           </ul>
+          <SaveButton recipeId={_id} />
           {userId == sessionId && userId ? (
             <ul className=" top-20 text-2xl space-y-2">
               <li>

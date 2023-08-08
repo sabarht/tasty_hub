@@ -29,7 +29,7 @@ export default function Login() {
             <button
               onClick={() => signOut()}
               type="button"
-              className="p-1.5 px-6 "
+              className="p-1.5 px-4 m-2"
             >
               Sign out
             </button>
@@ -59,7 +59,7 @@ export default function Login() {
               </Link>
             </button>
           </li>
-          <li>
+          {/* <li>
             {" "}
             <button className="bg-customGreenLight py-1.5 w-36 rounded-lg">
               <Link
@@ -71,23 +71,24 @@ export default function Login() {
                 <AiOutlineArrowRight />
               </Link>
             </button>
-          </li>
+          </li> */}
         </ul>
         <div className="m-20 text-transparent">.</div>
         <div className="m-20 text-transparent ">.</div>
 
         <span className="fixed bottom-0 w-full ">
           <Footer>
-            <ul className="text-xs">
+            <ul className="text-xs flex justify-center">
               Illustrations by:
               <li>
                 <a href="https://www.freepik.com/free-vector/recipe-book-concept-illustration_19245712.htm#query=recipe%20illustration&position=0&from_view=search&track=ais">
                   storyset
                 </a>
-                on Freepik
+                on Freepik &{" "}
               </li>
               <li>
                 <a href="https://www.freepik.com/free-vector/cat-astronaut-concept-illustration_22896103.htm#query=illustration%20lcat&position=38&from_view=search&track=ais">
+                  {" "}
                   storyset
                 </a>
                 on Freepik

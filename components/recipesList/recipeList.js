@@ -7,7 +7,9 @@ export default function RecipeList({ data }) {
       {data.map((recipe) => (
         <>
           <RecipeListItem recipe={recipe} key={recipe._id}>
-            <SaveButton recipeId={recipe._id} />
+            <span className=" absolute bottom-0 right-0">
+              <SaveButton recipeId={recipe._id} />
+            </span>
           </RecipeListItem>
         </>
       ))}

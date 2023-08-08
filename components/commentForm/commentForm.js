@@ -2,7 +2,6 @@ import { VscSend } from "react-icons/vsc";
 export default function CommentForm({ onSubmit }) {
   return (
     <form onSubmit={onSubmit} className="w-full p-4 max-w-lg md:max-w-xl m-4">
-      <label htmlFor="comment">Add a comment:</label>
       <div className="flex">
         <input
           id="comment"

@@ -2,13 +2,10 @@ import RecipeListItem from "../../../components/recipeListItem/recipeListItem";
 import useSWR from "swr";
 import Layout from "../../../components/layout/layout";
 import { useSession } from "next-auth/react";
-import Image from "next/image";
 export default function SavedPage() {
   const { data: session } = useSession();
-  console.log("aaaaa", session);
 
   const { data: savedRecipes } = useSWR(`/api/users/${session?.user._id}`);
-  console.log("suserData", savedRecipes);
 
   if (!savedRecipes || savedRecipes[0] == null) {
     return (
@@ -20,6 +17,7 @@ export default function SavedPage() {
   }
   return (
     <Layout>
+      <h4 className="m-4 font-semibold text-lg"> Your Saved Recipes:</h4>
       <ul>
         {savedRecipes.map((recipe) => {
           return (
