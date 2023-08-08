@@ -5,7 +5,7 @@ import useSWR, { mutate } from "swr";
 import { useSession } from "next-auth/react";
 export default function SaveButton({ recipeId }) {
   const { data: user } = useSession();
-
+  console.log("user", user);
   console.log("userID", user?.user._id);
   const [isSaved, setIsSaved] = useState(false);
   const { data: savedRecipes, error } = useSWR(
@@ -25,8 +25,11 @@ export default function SaveButton({ recipeId }) {
 
   async function handleToggleSave() {
     try {
-      if (isSaved) {
-        // Make a DELETE request to remove the spot from favorites
+      if (user == null) {
+        const confirmation = window.confirm(
+          "You need to sign in to save recipes!"
+        );
+      } else if (isSaved) {
         const result = isSavedArray.filter((id) => id !== recipeId);
         setIsSavedArray([...result]);
         console.log("SAVED setIsSavedArray", isSavedArray);

@@ -10,7 +10,7 @@ export default function RecipeDetails({
 }) {
   const router = useRouter();
   const { title, image, creator, direction, ingredients, description } = data;
-
+  console.log("userId", userId);
   return (
     <>
       <div className="text-gray-800 my-6">
@@ -23,7 +23,7 @@ export default function RecipeDetails({
               <h4 className="text-xl font-medium ">recipe by: {creator}</h4>
             </li>
           </ul>
-          {userId == sessionId ? (
+          {userId == sessionId && userId ? (
             <ul className=" top-20 text-2xl space-y-2">
               <li>
                 <Link href={`/edit/${data._id}`} passHref legacyBehavior>

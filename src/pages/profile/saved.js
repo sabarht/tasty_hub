@@ -12,9 +12,9 @@ export default function SavedPage() {
 
   if (!savedRecipes || savedRecipes[0] == null) {
     return (
-      <div>
-        <h1>Save a recipe!</h1>
-        <img src="meow.png" width="100%" alt="cat" />
+      <div className="flex flex-col items-center justify-center m-10">
+        <h1 className="text-xl font-semibold ">You have no saved recipes!</h1>
+        <img className="max-w-md" src="/meow.png" width="100%" alt="cat" />
       </div>
     );
   }
