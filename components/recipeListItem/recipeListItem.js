@@ -23,7 +23,7 @@ export default function RecipeListItem({ recipe, children }) {
 
         <ul className="flex flex-col justify-between py-4 px-2">
           <li>{recipe.title}</li>
-          <li>{recipe.creator} </li>
+          <li className="text-gray-800 font-light ">{recipe.creator} </li>
         </ul>
       </span>
       {children}

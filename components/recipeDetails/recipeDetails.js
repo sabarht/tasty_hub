@@ -13,7 +13,7 @@ export default function RecipeDetails({
   console.log("userId", userId);
   return (
     <>
-      <div className="text-gray-800 my-6">
+      <div className="text-gray-800 my-6 px-3">
         <div className="flex justify-between">
           <ul className="max-w-sm">
             <li>
@@ -60,9 +60,7 @@ export default function RecipeDetails({
           </h3>
           <ul>
             {ingredients.map((ingredient) => (
-              <li key={ingredient} className="list-disc">
-                {ingredient}
-              </li>
+              <li key={ingredient}>• {ingredient}</li>
             ))}
           </ul>
           <h3 className="text-2xl font-semibold text-gray-800 my-4">

@@ -79,7 +79,7 @@ export default function RecipeDetailsPage() {
           handleDelete={deleteRecipe}
         />
         <CommentForm onSubmit={handleComment} />
-        <ul className="w-full  max-w-lg md:max-w-xl flex flex-col items-start space-y-2">
+        <ul className="mb-6 w-full px-4 text-gray-700 max-w-lg md:max-w-xl flex flex-col items-start space-y-2">
           {allComments &&
             allComments.map((comment, index) => (
               <li

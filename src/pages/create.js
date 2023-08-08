@@ -74,7 +74,7 @@ export default function CreatePage() {
   }
   return (
     <>
-      <Layout>
+      <Layout className="">
         <RecipeForm
           onSubmit={handleSubmit}
           onClick={addIngredient}
@@ -83,7 +83,7 @@ export default function CreatePage() {
           onAddDirection={addDirection}
           onDirectionDelete={deleteDirection}
           onChangeDirection={handleDirectionChange}
-          formName={"add-recipe"}
+          formName={"Add new recipe"}
           appendedInput={appendedInput}
           appendedDirection={appendedDirection}
           ingredient={ingredient}

@@ -1,7 +1,6 @@
 import { IoIosRemoveCircleOutline } from "react-icons/io";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { BsArrowRightCircle } from "react-icons/bs";
-import { useState } from "react";
 export default function RecipeForm({
   onSubmit,
   formName,
@@ -19,10 +18,11 @@ export default function RecipeForm({
 }) {
   return (
     <>
+      <h2 className="m-6 font-semibold">{formName}:</h2>
       <form
         aria-labelledby={formName}
         onSubmit={onSubmit}
-        className="w-1/2 border-2 p-3 flex-col justify-center space-y-3"
+        className="w-3/4 mb-8 lg:w-1/2  border-2 p-3 rounded flex-col justify-center  space-y-3"
       >
         <div>
           <label htmlFor="title" className="block">
@@ -140,10 +140,11 @@ export default function RecipeForm({
           name="category"
           className="p-1.5 border-2 rounded-lg"
         >
-          <option value="" disabled selected></option>
+          <option value="-" disabled selected></option>
           <option value="Iranian">Iranian</option>
           <option value="Italian">Italian</option>
           <option value="Indian">Indian</option>
+          <option value="Indian">Turkish</option>
         </select>
         <button
           className="flex items-center  hover:bg-green-600 hover:font-medium  bg-green-800 text-white p-2 px-3  rounded-xl"

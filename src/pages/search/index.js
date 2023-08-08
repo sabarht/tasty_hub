@@ -10,7 +10,7 @@ export default function SearchPage({ savedRecipes }) {
   const { data } = useSWR("/api/recipes");
   const [searchResults, setSearchResults] = useState([]);
   const [searchValue, setSearchValue] = useState(" ");
-
+  const categries = ["Iranian", "Italian", "Indian", "Turkish"];
   function handleSearchResults(e) {
     e.preventDefault();
     setSearchValue(e.target.value);
@@ -26,21 +26,34 @@ export default function SearchPage({ savedRecipes }) {
       // setSearchResults(filteredResults);
     }
   }
-  function handleFilter(category) {
+  function handleFilter({ category }) {
     const results = data.filter((recipe) => recipe.category == category);
 
     setSearchResults(results);
   }
   return (
     <>
-      <Layout>
+      <Layout className="w-full">
         <section className="search-header ">
           {" "}
           <p> Search your cravings</p>
         </section>
         <SearchForm onChange={handleSearchResults} />
-        <ul className="flex space-x-4 m-2">
-          <li>
+        <ul className="flex space-x-4 m-2 overflow-x-auto whitespace-no-wrap">
+          {categries.map((category) => (
+            <li key={category}>
+              <button
+                className=" border-2 p-1.5 px-6 rounded-lg"
+                onClick={() => {
+                  handleFilter({ category });
+                }}
+              >
+                {category}
+              </button>
+            </li>
+          ))}
+
+          {/* <li>
             <button
               className=" border-2 p-1.5 px-6 rounded-lg"
               onClick={() => {
@@ -69,7 +82,7 @@ export default function SearchPage({ savedRecipes }) {
             >
               Indian
             </button>
-          </li>
+          </li> */}
         </ul>
         {searchResults == "No result" ? (
           <div className="mt-6 flex flex-col">
@@ -90,3 +103,15 @@ export default function SearchPage({ savedRecipes }) {
     </>
   );
 }
+// {categries.map((category) => (
+//   <li key={category}>
+//     <button
+//       className=" border-2 p-1.5 px-6 rounded-lg"
+//       onClick={() => {
+//         handleFilter({ category });
+//       }}
+//     >
+//       {category}
+//     </button>
+//   </li>
+// ))}

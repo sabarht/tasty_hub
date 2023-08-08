@@ -89,7 +89,7 @@ export default function EditPage() {
           onAddDirection={addDirection}
           onDirectionDelete={deleteDirection}
           onChangeDirection={handleDirectionChange}
-          formName={"Edit-recipe"}
+          formName={"Edit recipe"}
           appendedInput={appendedInput}
           appendedDirection={appendedDirection}
           defaultValue={recipe}
