@@ -119,8 +119,8 @@ export default function Login() {
         Sign in
       </button>
       <br />
-      <div className="m-20 text-transparent md:hidden">.</div>
-      <span className="fixed bottom-0 w-full md:static">
+      {/* <div className="m-20 text-transparent md:hidden">.</div> */}
+      <span className="relative bottom-0 w-full md:static">
         <Footer>
           <ul className="text-xs">
             Illustrations by:

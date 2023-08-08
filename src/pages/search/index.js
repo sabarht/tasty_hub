@@ -33,7 +33,7 @@ export default function SearchPage({ savedRecipes }) {
   }
   return (
     <>
-      <Layout className="w-full">
+      <Layout className="w-full flex-grow">
         <section className="search-header ">
           {" "}
           <p> Search your cravings</p>
@@ -94,10 +94,11 @@ export default function SearchPage({ savedRecipes }) {
         ) : (
           <RecipeList data={searchResults} savedRecipes={savedRecipes} />
         )}
-        {/* <RecipeList data={searchResults} savedRecipes={savedRecipes} /> */}
       </Layout>
-      <div className="m-20 text-transparent">.</div>
-      <span className="fixed bottom-0 w-full">
+
+      <div className="m-20 text-transparent ">.</div>
+
+      <span className="fixed bottom-0 w-full ">
         <Footer />
       </span>
     </>

@@ -22,8 +22,6 @@ export default function EditPage() {
     if (ingredient.trim() !== "") {
       setAppendedInput([...appendedInput, ingredient]);
       setIngredient("");
-
-      // e.target.form.reset(); // Reset the form
     }
   }
 
@@ -42,7 +40,6 @@ export default function EditPage() {
       setAppendedDirection([...appendedDirection, direction]);
       setDirection("");
     }
-    // e.target.form.reset(); // Reset the form
   }
 
   function deleteDirection(index) {

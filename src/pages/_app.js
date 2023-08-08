@@ -4,23 +4,10 @@ import { SessionProvider } from "next-auth/react";
 import { useState } from "react";
 import Navigation from "../../components/navigation/navigation";
 
-// let isSaved = false;
-
 export default function App({
   Component,
   pageProps: { session, ...pageProps },
 }) {
-  // const [savedRecipes, setSavedRecipes] = useState([]);
-
-  // function handleToggleFavorite(_id) {
-  //   if (savedRecipes.includes(_id)) {
-  //     setSavedRecipes(savedRecipes.filter((element) => element !== _id));
-  //     isSaved = false;
-  //   } else {
-  //     setSavedRecipes([...savedRecipes, _id]);
-  //     isSaved = true;
-  //   }
-  // }
   return (
     <SessionProvider session={session}>
       <SWRConfig
@@ -35,12 +22,7 @@ export default function App({
         }}
       >
         <Navigation />
-        <Component
-          {...pageProps}
-          // handleToggleFavorite={handleToggleFavorite}
-          // savedRecipes={savedRecipes}
-          // isSaved={isSaved}
-        />
+        <Component {...pageProps} />
       </SWRConfig>
     </SessionProvider>
   );
