@@ -11,17 +11,15 @@ export default function CreatePage() {
   const [ingredient, setIngredient] = useState("");
   const [appendedDirection, setAppendedDirection] = useState([]);
   const [direction, setDirection] = useState("");
-  // const [ingredientValue, setIngredientValue] = useState("");
 
   function handleInputChange(event) {
     setIngredient(event.target.value);
-    // setIngredientValue(event.target.value);
   }
-  function addIngredient() {
+  function addIngredient(e) {
+    console.dir(e.target.parentElement.childNodes[0]);
     if (ingredient.trim() !== "") {
       setAppendedInput([...appendedInput, ingredient]);
       setIngredient("");
-      // e.target.ingredients.reset(); // Reset the form
     }
   }
 
@@ -40,7 +38,6 @@ export default function CreatePage() {
       setAppendedDirection([...appendedDirection, direction]);
       setDirection("");
     }
-    // e.target.form.reset(); // Reset the form
   }
 
   function deleteDirection(index) {
@@ -89,6 +86,8 @@ export default function CreatePage() {
           formName={"add-recipe"}
           appendedInput={appendedInput}
           appendedDirection={appendedDirection}
+          ingredient={ingredient}
+          direction={direction}
         />
       </Layout>
     </>

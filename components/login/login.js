@@ -2,7 +2,6 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "../../components/footer/footer";
-
 export default function Login() {
   const { data: session, status } = useSession();
   if (status === "loading") {
@@ -35,20 +34,20 @@ export default function Login() {
             </button>
           </li>
         </ul>
-        <div className="w-full border-t-2 border-gray-200"></div>
-        <button className="border-2 p-1.5 px-6 rounded-lg">
+        <div className="w-full m-8 border-t-2 border-gray-200"></div>
+        <button className="bg-customGreenLight p-1.5 px-6 rounded-lg">
           <Link href="/create" passHref>
             Add New Recipe
           </Link>
         </button>
-        <ul className="flex flex-row justify-around w-full space-x-4">
-          <li>
+        <ul className="flex flex-row justify-around w-full space-x-4 m-4">
+          <li className="border-b-2 border-customGreenLight p-1.5 px-6">
             {" "}
             <Link href="/profile/saved" passHref>
               Saved Recipes
             </Link>
           </li>
-          <li>
+          <li className="border-b-2 p-1.5 px-6 border-customGreenLight">
             {" "}
             <Link href="/profile/usersRecipes" passHref>
               My Recipes
@@ -81,7 +80,9 @@ export default function Login() {
   return (
     <>
       <br />
-      <p className="m-2">You are not signed in</p>
+      <p className="m-2 font-semibold">
+        Sign in to access all of the amazing features!
+      </p>
       <img
         className="w-3/4 max-w-lg md:max-w-3xl"
         src="/recipes.png"

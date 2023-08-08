@@ -1,6 +1,7 @@
 import { IoIosRemoveCircleOutline } from "react-icons/io";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { BsArrowRightCircle } from "react-icons/bs";
+import { useState } from "react";
 export default function RecipeForm({
   onSubmit,
   formName,
@@ -13,6 +14,8 @@ export default function RecipeForm({
   onChangeDirection,
   appendedDirection,
   defaultValue,
+  ingredient,
+  direction,
 }) {
   return (
     <>
@@ -70,6 +73,7 @@ export default function RecipeForm({
             type="text"
             className="mr-1.5 flex-grow  border-2 p-2 rounded-md"
             defaultValue={defaultValue?.ingredients}
+            value={ingredient}
           />{" "}
           <button
             type="button"
@@ -99,6 +103,7 @@ export default function RecipeForm({
         </label>
         <div className="w-full flex">
           <input
+            value={direction}
             onChange={onChangeDirection}
             name="direction"
             id="direction"
