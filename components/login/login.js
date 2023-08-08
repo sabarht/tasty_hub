@@ -1,6 +1,7 @@
 import { useSession, signIn, signOut } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
+import { AiOutlineArrowRight } from "react-icons/ai";
 import Footer from "../../components/footer/footer";
 export default function Login() {
   const { data: session, status } = useSession();
@@ -35,26 +36,46 @@ export default function Login() {
           </li>
         </ul>
         <div className="w-full m-8 border-t-2 border-gray-200"></div>
-        <button className="bg-customGreenLight p-1.5 px-6 rounded-lg">
-          <Link href="/create" passHref>
-            Add New Recipe
-          </Link>
-        </button>
-        <ul className="flex flex-row justify-around w-full space-x-4 m-4">
-          <li className="border-b-2 border-customGreenLight p-1.5 px-6">
+
+        <ul className="flex flex-col items-center w-full space-y-6 m-4">
+          <li>
             {" "}
-            <Link href="/profile/saved" passHref>
-              Saved Recipes
-            </Link>
+            <button className=" text-center bg-customGreenLight py-1.5 w-36 rounded-lg">
+              <Link href="/create" passHref>
+                Add New Recipe
+              </Link>
+            </button>
           </li>
-          <li className="border-b-2 p-1.5 px-6 border-customGreenLight">
+          <li>
             {" "}
-            <Link href="/profile/usersRecipes" passHref>
-              My Recipes
-            </Link>
+            <button className="bg-customGreenLight py-1.5 w-36 rounded-lg">
+              <Link
+                href="/profile/saved"
+                className="flex items-center justify-center space-x-2"
+                passHref
+              >
+                <span> Saved Recipes</span>
+                <AiOutlineArrowRight />
+              </Link>
+            </button>
+          </li>
+          <li>
+            {" "}
+            <button className="bg-customGreenLight py-1.5 w-36 rounded-lg">
+              <Link
+                href="/profile/usersRecipes"
+                className="flex items-center justify-center space-x-2"
+                passHref
+              >
+                <span> My Recipes </span>
+                <AiOutlineArrowRight />
+              </Link>
+            </button>
           </li>
         </ul>
         <div className="m-20 text-transparent">.</div>
+        <div className="m-20 text-transparent ">.</div>
+
         <span className="fixed bottom-0 w-full ">
           <Footer>
             <ul className="text-xs">
