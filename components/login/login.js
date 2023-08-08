@@ -44,7 +44,7 @@ export default function Login() {
           Saved Recipes
         </Link>
 
-        <Link href="/profile/usersrecipes" passHref>
+        <Link href="/profile/usersRecipes" passHref>
           My Recipes
         </Link>
       </>
@@ -56,7 +56,7 @@ export default function Login() {
       <p className="m-2">You are not signed in</p>
       <img
         className="w-3/4 max-w-3xl"
-        src="recipes.png"
+        src="/recipes.png"
         width="100%"
         alt="astronut cat"
       />{" "}
