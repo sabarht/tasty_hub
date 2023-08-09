@@ -3,8 +3,10 @@ import { useRouter } from "next/router";
 import useSWR from "swr";
 import Layout from "../../components/layout/layout";
 import React, { useState } from "react";
-
+import { useSession } from "next-auth/react";
 export default function CreatePage() {
+  const { data: session } = useSession();
+  const creator = session?.user.name;
   const router = useRouter();
   const recipes = useSWR("/api/recipes");
   const [appendedInput, setAppendedInput] = useState([]);
@@ -53,6 +55,7 @@ export default function CreatePage() {
     console.log("sedevt", data);
     const newData = {
       ...data,
+      creator,
       ingredients: appendedInput,
       direction: appendedDirection,
     };

@@ -5,6 +5,7 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import Footer from "../../components/footer/footer";
 export default function Login() {
   const { data: session, status } = useSession();
+
   if (status === "loading") {
     return <div>Loading...</div>;
   }
