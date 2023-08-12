@@ -107,7 +107,7 @@ export default function Login() {
         Sign in to access all of the amazing features!
       </p>
       <img
-        className="w-3/4 max-w-lg md:max-w-3xl"
+        className="w-3/4 max-w-lg md:max-w-2xl"
         src="/recipes.png"
         width="100%"
         alt="recipes book illustration"
@@ -121,7 +121,7 @@ export default function Login() {
       </button>
       <br />
       {/* <div className="m-20 text-transparent md:hidden">.</div> */}
-      <span className="relative bottom-0 w-full md:static">
+      <span className="fixed bottom-0 w-full sm:static">
         <Footer>
           <ul className="text-xs">
             Illustrations by:

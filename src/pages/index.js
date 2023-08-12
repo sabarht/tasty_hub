@@ -15,8 +15,8 @@ export default function Home({}) {
   return (
     <>
       <section className="home-header ">
-        <div className="p-16 min-h-screen flex flex-col items-center px-24">
-          <p className="m-3 text-white text-lg font-semibold">
+        <div className="py-16 min-h-screen flex flex-col items-center">
+          <p className="my-3 text-white text-lg font-semibold">
             Explore New Recipes
           </p>
         </div>

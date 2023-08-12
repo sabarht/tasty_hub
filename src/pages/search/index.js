@@ -33,17 +33,17 @@ export default function SearchPage({ savedRecipes }) {
   }
   return (
     <>
-      <Layout className="w-full flex-grow">
-        <section className="search-header ">
+      <Layout className="w-full ">
+        <section className="search-header">
           {" "}
           <p> Search your cravings</p>
         </section>
         <SearchForm onChange={handleSearchResults} />
-        <ul className="flex space-x-4 m-2 overflow-x-auto whitespace-no-wrap">
+        <ul className="flex space-x-1 sm:space-x-2 m-2 flex-wrap text-sm ">
           {categries.map((category) => (
             <li key={category}>
               <button
-                className=" border-2 p-1.5 px-6 rounded-lg border-customGreenLight"
+                className=" border-2 p-1 px-3 rounded-lg border-customGreenLight"
                 onClick={() => {
                   handleFilter({ category });
                 }}
@@ -52,37 +52,6 @@ export default function SearchPage({ savedRecipes }) {
               </button>
             </li>
           ))}
-
-          {/* <li>
-            <button
-              className=" border-2 p-1.5 px-6 rounded-lg"
-              onClick={() => {
-                handleFilter("Iranian");
-              }}
-            >
-              Iranian
-            </button>
-          </li>
-          <li>
-            <button
-              className="border-2 p-1.5 px-6 rounded-lg"
-              onClick={() => {
-                handleFilter("Italian");
-              }}
-            >
-              Italian
-            </button>
-          </li>
-          <li>
-            <button
-              className="border-2 p-1.5 px-6 rounded-lg"
-              onClick={() => {
-                handleFilter("Indian");
-              }}
-            >
-              Indian
-            </button>
-          </li> */}
         </ul>
         {searchResults == "No result" ? (
           <div className="mt-6 flex flex-col">

@@ -1,7 +1,6 @@
 import "@/styles/globals.css";
 import { SWRConfig } from "swr";
 import { SessionProvider } from "next-auth/react";
-import { useState } from "react";
 import Navigation from "../../components/navigation/navigation";
 
 export default function App({
